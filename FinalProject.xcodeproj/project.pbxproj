@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5624DDED1B68C2CF00A12F82 /* CoreDataService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 56ADD2771B557BC3000887BD /* CoreDataService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		562BB1381B55627000B73F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562BB1371B55627000B73F46 /* AppDelegate.swift */; };
 		562BB13D1B55627000B73F46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562BB13B1B55627000B73F46 /* Main.storyboard */; };
 		562BB13F1B55627000B73F46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562BB13E1B55627000B73F46 /* Images.xcassets */; };
@@ -32,6 +33,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				5624DDED1B68C2CF00A12F82 /* CoreDataService.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +50,7 @@
 		562BB1471B55627000B73F46 /* FinalProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		562BB14C1B55627000B73F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562BB14D1B55627000B73F46 /* FinalProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProjectTests.swift; sourceTree = "<group>"; };
-		56ADD2771B557BC3000887BD /* CoreDataService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreDataService.framework; path = FinalProject/Frameworks/CoreDataService.framework; sourceTree = SOURCE_ROOT; };
+		56ADD2771B557BC3000887BD /* CoreDataService.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreDataService.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +149,7 @@
 			children = (
 				56ADD2771B557BC3000887BD /* CoreDataService.framework */,
 			);
-			name = Frameworks;
-			path = ../../../Repos/personal/cis399/example/BigHills/BigHills/Frameworks;
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,7 +382,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FinalProject/Frameworks",
-					/Users/charles/Repos/personal/cis399/example/BigHills/BigHills/Frameworks,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/FinalProject/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -397,7 +397,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FinalProject/Frameworks",
-					/Users/charles/Repos/personal/cis399/example/BigHills/BigHills/Frameworks,
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/FinalProject/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
