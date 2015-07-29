@@ -12,7 +12,7 @@ import Foundation
 
 public let CoreDataServiceInitializationFinishedNotification = "CoreDataServiceInitializationFinishedNotification"
 
-
+/// This is a test
 public typealias SaveCompletionHandler = (success: Bool, error: NSError?) -> Void
 public typealias OperationFinalizationHandler = (save: Bool, saveCompletionHandler: SaveCompletionHandler?) -> Void
 public typealias SynchronousReadOnlyDataOperation = (context: NSManagedObjectContext) -> Void
@@ -20,6 +20,11 @@ public typealias AsynchronousDataOperation = (context: NSManagedObjectContext, o
 
 
 public class CoreDataService {
+	// MARK: Public
+	public func lookupManagedObject<T: NSManagedObject>(managedObject: T, appropriateForUseInContext context: NSManagedObjectContext) -> T {
+		return context.objectWithID(managedObject.permanentObjectID!) as! T
+	}
+
 	// MARK: DAO
 	public func beginSynchronousReadOnlyDataOperationForDataAccessObject(dataAccessObject: DataAccessObject, @noescape operation: SynchronousReadOnlyDataOperation) {
 		if initializationFinished {
@@ -67,12 +72,12 @@ public class CoreDataService {
 			if context == nil {
 				let newContext: NSManagedObjectContext
 				if onMainQueue {
-					newContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+					newContext = self.mainQueueContext
 				}
 				else {
 					newContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+					newContext.parentContext = self.mainQueueContext
 				}
-				newContext.parentContext = self.mainQueueContext
 				newContext.undoManager = nil
 
 				self.writingOperationContexts[operationUUID] = newContext
@@ -100,23 +105,34 @@ public class CoreDataService {
 			someWritingOperationContext.performBlock() {
 				var error: NSError?
 				if someWritingOperationContext.save(&error) {
-					self.mainQueueContext.performBlock() {
-						var error: NSError?
-						if self.mainQueueContext.save(&error) {
-							self.saveRootContext() { (success, error) in
-								if(!success) {
-									println("Error: Failed to root parent context while cleaning up context for writing operation with identifier \(operationUUID)")
-								}
+					if someWritingOperationContext != self.mainQueueContext {
+						self.mainQueueContext.performBlock() {
+							var error: NSError?
+							if self.mainQueueContext.save(&error) {
+								self.saveRootContext() { (success, error) in
+									if(!success) {
+										println("Error: Failed to root parent context while cleaning up context for writing operation with identifier \(operationUUID)")
+									}
 
-								completionHandler?(success: success, error: error)
+									completionHandler?(success: success, error: error)
+								}
+							}
+							else {
+								println("Error: Failed to save main queue context while cleaning up context for writing operation with identifier \(operationUUID)")
+
+								self.mainQueueContext.rollback()
+
+								completionHandler?(success: false, error: error)
 							}
 						}
-						else {
-							println("Error: Failed to save main queue context while cleaning up context for writing operation with identifier \(operationUUID)")
+					}
+					else {
+						self.saveRootContext() { (success, error) in
+							if(!success) {
+								println("Error: Failed to root parent context while cleaning up context for writing operation with identifier \(operationUUID)")
+							}
 
-							self.mainQueueContext.rollback()
-
-							completionHandler?(success: false, error: error)
+							completionHandler?(success: success, error: error)
 						}
 					}
 				}
