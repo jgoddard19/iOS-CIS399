@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CD4FE2F1B698E6800DFA2E5 /* DayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE2E1B698E6800DFA2E5 /* DayService.swift */; };
+		1CD4FE351B69910100DFA2E5 /* DayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE341B69910100DFA2E5 /* DayListViewController.swift */; };
 		562BB1381B55627000B73F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562BB1371B55627000B73F46 /* AppDelegate.swift */; };
 		562BB13D1B55627000B73F46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562BB13B1B55627000B73F46 /* Main.storyboard */; };
 		562BB13F1B55627000B73F46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562BB13E1B55627000B73F46 /* Images.xcassets */; };
@@ -73,6 +75,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1CD4FE2E1B698E6800DFA2E5 /* DayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayService.swift; sourceTree = "<group>"; };
+		1CD4FE341B69910100DFA2E5 /* DayListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayListViewController.swift; path = FinalProject/DayListViewController.swift; sourceTree = SOURCE_ROOT; };
 		562BB1321B55627000B73F46 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		562BB1361B55627000B73F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562BB1371B55627000B73F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CD4FE291B698D3900DFA2E5 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1CD4FE2E1B698E6800DFA2E5 /* DayService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		562BB1291B55627000B73F46 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +171,7 @@
 			children = (
 				562BB1581B5562D100B73F46 /* Source */,
 				562BB1571B5562CB00B73F46 /* Resources */,
+				1CD4FE291B698D3900DFA2E5 /* Service */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -204,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				562BB1371B55627000B73F46 /* AppDelegate.swift */,
+				1CD4FE341B69910100DFA2E5 /* DayListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -446,7 +460,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				562BB1381B55627000B73F46 /* AppDelegate.swift in Sources */,
+				1CD4FE2F1B698E6800DFA2E5 /* DayService.swift in Sources */,
 				56BEFEBE1B68C3E0006F0664 /* Model.xcdatamodeld in Sources */,
+				1CD4FE351B69910100DFA2E5 /* DayListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -777,6 +793,7 @@
 				56BEFF481B68CE0A006F0664 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56BEFF491B68CE0A006F0664 /* Build configuration list for PBXNativeTarget "CoreDataServiceTests" */ = {
 			isa = XCConfigurationList;
@@ -785,6 +802,7 @@
 				56BEFF4B1B68CE0A006F0664 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

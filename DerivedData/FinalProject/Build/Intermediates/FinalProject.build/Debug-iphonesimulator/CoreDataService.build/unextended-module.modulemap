@@ -1,0 +1,10 @@
+framework module CoreDataService {
+  umbrella header "CoreDataService.h"
+
+  export *
+  module * { export * }
+}
+
+module CoreDataService.__Swift {
+    exclude header "CoreDataService-Swift.h"
+}

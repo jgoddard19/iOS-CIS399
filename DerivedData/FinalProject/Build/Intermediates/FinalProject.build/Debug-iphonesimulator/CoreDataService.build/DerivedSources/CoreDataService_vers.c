@@ -1,0 +1,1 @@
+ const unsigned char CoreDataServiceVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:CoreDataService  PROJECT:FinalProject-1" "\n"; const double CoreDataServiceVersionNumber __attribute__ ((used)) = (double)1.;

@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Products/Debug-iphonesimulator/CoreDataService.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "CoreDataService-Swift.h",
+          'external-contents': "/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Products/Debug-iphonesimulator/CoreDataService.framework/Headers/CoreDataService-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "CoreDataService.h",
+          'external-contents': "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/CoreDataService.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Products/Debug-iphonesimulator/CoreDataService.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Intermediates/FinalProject.build/Debug-iphonesimulator/CoreDataService.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

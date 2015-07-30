@@ -1,0 +1,4 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
+options: "ba295a9b5a79d41e0a77827a6de5eab2"
+inputs: 
+- "/Users/jgoddard/Repos/finalProjectFixed/FinalProjectTests/FinalProjectTests.swift"

@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Products/Debug-iphonesimulator/CoreDataService.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Intermediates/FinalProject.build/Debug-iphonesimulator/CoreDataService.build/unextended-module.modulemap',
+    }]
+  }]
+}
