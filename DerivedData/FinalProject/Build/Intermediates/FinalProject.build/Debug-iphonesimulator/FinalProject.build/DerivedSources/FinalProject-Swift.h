@@ -109,12 +109,33 @@ SWIFT_CLASS("_TtC12FinalProject11AppDelegate")
 SWIFT_CLASS("_TtC12FinalProject21DayListViewController")
 @interface DayListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, copy) NSString * __nullable titleLabel;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
+- (NSInteger)tableView:(UITableView * __nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (void)tableView:(UITableView * __nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 - (void)prepareForSegue:(UIStoryboardSegue * __nonnull)segue sender:(id __nullable)sender;
 - (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidDisappear:(BOOL)animated;
+- (void)viewDidLoad;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(null_unspecified) instancetype)initWithNibName:(NSString * __null_unspecified)nibNameOrNil bundle:(NSBundle * __null_unspecified)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(null_unspecified) instancetype)initWithCoder:(NSCoder * __null_unspecified)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UINavigationItem;
+
+SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
+@interface WorkoutsListViewController : UITableViewController
+@property (nonatomic, weak) IBOutlet UINavigationItem * __null_unspecified workoutsListViewTitle;
+@property (nonatomic, copy) NSString * __nullable day;
+@property (nonatomic, copy) NSArray * __nonnull days;
+- (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)workoutsView cellForItemAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
 - (NSInteger)tableView:(UITableView * __nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
+- (void)viewDidLoad;
+@property (nonatomic, weak) IBOutlet UITableView * __null_unspecified workoutsListView;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(null_unspecified) instancetype)initWithNibName:(NSString * __null_unspecified)nibNameOrNil bundle:(NSBundle * __null_unspecified)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(null_unspecified) instancetype)initWithCoder:(NSCoder * __null_unspecified)aDecoder OBJC_DESIGNATED_INITIALIZER;

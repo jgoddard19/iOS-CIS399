@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1CD4FE2F1B698E6800DFA2E5 /* DayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE2E1B698E6800DFA2E5 /* DayService.swift */; };
 		1CD4FE351B69910100DFA2E5 /* DayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE341B69910100DFA2E5 /* DayListViewController.swift */; };
+		1CD4FE371B6A93BB00DFA2E5 /* WorkoutsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE361B6A93BB00DFA2E5 /* WorkoutsListViewController.swift */; };
 		562BB1381B55627000B73F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562BB1371B55627000B73F46 /* AppDelegate.swift */; };
 		562BB13D1B55627000B73F46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562BB13B1B55627000B73F46 /* Main.storyboard */; };
 		562BB13F1B55627000B73F46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562BB13E1B55627000B73F46 /* Images.xcassets */; };
@@ -77,6 +78,7 @@
 /* Begin PBXFileReference section */
 		1CD4FE2E1B698E6800DFA2E5 /* DayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayService.swift; sourceTree = "<group>"; };
 		1CD4FE341B69910100DFA2E5 /* DayListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayListViewController.swift; path = FinalProject/DayListViewController.swift; sourceTree = SOURCE_ROOT; };
+		1CD4FE361B6A93BB00DFA2E5 /* WorkoutsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutsListViewController.swift; path = FinalProject/WorkoutsListViewController.swift; sourceTree = SOURCE_ROOT; };
 		562BB1321B55627000B73F46 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		562BB1361B55627000B73F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562BB1371B55627000B73F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 				1CD4FE2E1B698E6800DFA2E5 /* DayService.swift */,
 			);
 			name = Service;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		1CD4FE381B6AE8E600DFA2E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		562BB1291B55627000B73F46 = {
@@ -171,7 +181,6 @@
 			children = (
 				562BB1581B5562D100B73F46 /* Source */,
 				562BB1571B5562CB00B73F46 /* Resources */,
-				1CD4FE291B698D3900DFA2E5 /* Service */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -209,6 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				562BB1591B5562E400B73F46 /* Controller */,
+				1CD4FE291B698D3900DFA2E5 /* Service */,
+				1CD4FE381B6AE8E600DFA2E5 /* View */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -218,6 +229,7 @@
 			children = (
 				562BB1371B55627000B73F46 /* AppDelegate.swift */,
 				1CD4FE341B69910100DFA2E5 /* DayListViewController.swift */,
+				1CD4FE361B6A93BB00DFA2E5 /* WorkoutsListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -461,6 +473,7 @@
 			files = (
 				562BB1381B55627000B73F46 /* AppDelegate.swift in Sources */,
 				1CD4FE2F1B698E6800DFA2E5 /* DayService.swift in Sources */,
+				1CD4FE371B6A93BB00DFA2E5 /* WorkoutsListViewController.swift in Sources */,
 				56BEFEBE1B68C3E0006F0664 /* Model.xcdatamodeld in Sources */,
 				1CD4FE351B69910100DFA2E5 /* DayListViewController.swift in Sources */,
 			);

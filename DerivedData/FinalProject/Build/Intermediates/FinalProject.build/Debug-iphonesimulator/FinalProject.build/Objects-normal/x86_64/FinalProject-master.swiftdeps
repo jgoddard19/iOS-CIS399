@@ -1,6 +1,7 @@
 version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
-options: "3a5f9ff63cf76faac255c87fb1e3995e"
+options: "745f19bdc2e7c84552741c053307014f"
 inputs: 
 - "/Users/jgoddard/Repos/finalProjectFixed/FinalProject/Source/Controller/AppDelegate.swift"
 - "/Users/jgoddard/Repos/finalProjectFixed/FinalProject/DayService.swift"
+- "/Users/jgoddard/Repos/finalProjectFixed/FinalProject/WorkoutsListViewController.swift"
 - "/Users/jgoddard/Repos/finalProjectFixed/FinalProject/DayListViewController.swift"

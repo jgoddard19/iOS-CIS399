@@ -10,7 +10,7 @@ import Foundation
 
 class DayService {
     // MARK: Service
-    func dayCategories() -> Array<(title: String, subtitle: String)> {
+    func dayList() -> Array<(title: String, subtitle: String)> {
         return [("Monday", "Contains \(mondayLifts.count) lifts"),
             ("Tuesday", "Contains \(tuesdayLifts.count) lifts"),
             ("Wednesday", "Contains \(wednesdayLifts.count) lifts"),
@@ -20,9 +20,9 @@ class DayService {
             ("Sunday", "Contains \(sundayLifts.count) lifts")]
     }
     
-    func imageNamesForCategory(category: String) -> Array<String>? {
+    func daysForList(day: String) -> Array<String>? {
         let result: Array<String>?
-        switch category {
+        switch day {
         case "Monday":
             result = mondayLifts
         case "Tuesday":
@@ -56,13 +56,13 @@ class DayService {
     }
     
     // MARK: Properties (Private)
-    private let mondayLifts: Array<String>
-    private let tuesdayLifts: Array<String>
-    private let wednesdayLifts: Array<String>
-    private let thursdayLifts: Array<String>
-    private let fridayLifts: Array<String>
-    private let saturdayLifts: Array<String>
-    private let sundayLifts: Array<String>
+    private let mondayLifts: Array<String>!
+    private let tuesdayLifts: Array<String>!
+    private let wednesdayLifts: Array<String>!
+    private let thursdayLifts: Array<String>!
+    private let fridayLifts: Array<String>!
+    private let saturdayLifts: Array<String>!
+    private let sundayLifts: Array<String>!
     
     // MARK: Properties (Static)
     static let sharedDayService = DayService()
