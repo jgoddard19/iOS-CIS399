@@ -35,8 +35,7 @@ class WorkoutsListViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-        //return workouts.count
+        return workouts.count
     }
     
     override func viewWillAppear(animated: Bool) {

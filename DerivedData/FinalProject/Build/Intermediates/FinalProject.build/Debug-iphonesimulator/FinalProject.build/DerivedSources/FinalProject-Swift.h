@@ -128,7 +128,7 @@ SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
 @interface WorkoutsListViewController : UITableViewController
 @property (nonatomic, weak) IBOutlet UINavigationItem * __null_unspecified workoutsListViewTitle;
 @property (nonatomic, copy) NSString * __nullable day;
-@property (nonatomic, copy) NSArray * __nonnull days;
+@property (nonatomic, copy) NSArray * __nonnull workouts;
 - (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)workoutsView cellForItemAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
 - (NSInteger)tableView:(UITableView * __nonnull)tableView numberOfRowsInSection:(NSInteger)section;
