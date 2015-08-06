@@ -166,13 +166,12 @@ SWIFT_CLASS("_TtC12FinalProject7Workout")
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithEntity:(NSEntityDescription * __nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * __nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UINavigationItem;
+@class UIToolbar;
 
 SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
-@interface WorkoutsListViewController : UITableViewController <UIAlertViewDelegate, NSFetchedResultsControllerDelegate>
+@interface WorkoutsListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, NSFetchedResultsControllerDelegate>
 @property (nonatomic, copy) NSString * __nullable day;
 @property (nonatomic, copy) NSArray * __nonnull workouts;
-- (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)workoutsView cellForItemAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
 - (NSInteger)tableView:(UITableView * __nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
@@ -183,11 +182,10 @@ SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
 @property (nonatomic) Day * __null_unspecified selectedDay;
-@property (nonatomic, weak) IBOutlet UINavigationItem * __null_unspecified workoutsListViewTitle;
+@property (nonatomic, weak) IBOutlet UIToolbar * __null_unspecified toolBar;
 @property (nonatomic, weak) IBOutlet UITableView * __null_unspecified workoutsListTable;
-- (SWIFT_NULLABILITY(nonnull) instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
-- (SWIFT_NULLABILITY(null_unspecified) instancetype)initWithNibName:(NSString * __null_unspecified)nibNameOrNil bundle:(NSBundle * __null_unspecified)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
-- (SWIFT_NULLABILITY(null_unspecified) instancetype)initWithCoder:(NSCoder * __null_unspecified)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 #pragma clang diagnostic pop

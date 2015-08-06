@@ -27,7 +27,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="AkQ-kh-MC1" kind="show" identifier="DaySelectedSegue" id="dzH-Kl-sdk"/>
+                                    <segue destination="s5Q-wu-6di" kind="show" id="WwI-Fd-Na0"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -36,7 +36,7 @@
                             <outlet property="delegate" destination="c1M-mg-N0o" id="Erg-Kk-4R3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="6or-we-3If"/>
+                    <navigationItem key="navigationItem" title="Day List" id="v5U-L0-iYl"/>
                     <connections>
                         <outlet property="daysTable" destination="DnA-1e-fsX" id="xd9-su-gap"/>
                     </connections>
@@ -44,6 +44,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVb-D9-zhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1845" y="265"/>
+        </scene>
+        <!--Workouts List View-->
+        <scene sceneID="WjU-ii-nyH">
+            <objects>
+                <viewController id="s5Q-wu-6di" userLabel="Workouts List View" customClass="WorkoutsListViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xz8-Cg-C7L"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kom-pU-S9c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mhQ-5b-kjJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1Uw-VD-NdC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="U2x-Zp-lU9">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U2x-Zp-lU9" id="lTH-YR-cl5">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Fhf-z2-JhP" kind="show" id="epX-ib-vdg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4AJ-4a-d4F">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="vgF-ix-cPe"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Uw-VD-NdC" firstAttribute="leading" secondItem="4AJ-4a-d4F" secondAttribute="leading" id="4QP-aE-xpF"/>
+                            <constraint firstItem="1Uw-VD-NdC" firstAttribute="top" secondItem="mhQ-5b-kjJ" secondAttribute="top" id="97b-PC-Eca"/>
+                            <constraint firstItem="4AJ-4a-d4F" firstAttribute="top" secondItem="1Uw-VD-NdC" secondAttribute="bottom" id="Ci5-O0-spz"/>
+                            <constraint firstAttribute="trailing" secondItem="4AJ-4a-d4F" secondAttribute="trailing" id="Kzn-nv-VfP"/>
+                            <constraint firstItem="4AJ-4a-d4F" firstAttribute="leading" secondItem="mhQ-5b-kjJ" secondAttribute="leading" id="O7D-as-OHI"/>
+                            <constraint firstItem="1Uw-VD-NdC" firstAttribute="trailing" secondItem="4AJ-4a-d4F" secondAttribute="trailing" id="bhv-4B-Wdv"/>
+                            <constraint firstItem="Kom-pU-S9c" firstAttribute="top" secondItem="4AJ-4a-d4F" secondAttribute="bottom" id="wiT-0s-f2N"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Workouts List" id="eF3-jt-dPN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fUB-QI-7JB"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="92U-mD-dgj" id="efZ-sV-XU4"/>
+                        <outlet property="editButton" destination="X7q-q6-rYQ" id="2Hu-Oe-rvS"/>
+                        <outlet property="toolBar" destination="4AJ-4a-d4F" id="d9i-iQ-78I"/>
+                        <outlet property="workoutsListTable" destination="1Uw-VD-NdC" id="Dsj-KN-onO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gHd-nz-s4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem systemItem="done" id="92U-mD-dgj"/>
+                <barButtonItem systemItem="edit" id="X7q-q6-rYQ"/>
+            </objects>
+            <point key="canvasLocation" x="2573" y="265"/>
         </scene>
         <!--Lifts View-->
         <scene sceneID="46h-UZ-dbL">
@@ -57,7 +118,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
-                                <navigationItem title="Title" id="dwr-Rs-9Hd">
+                                <navigationItem title="Lifts View" id="dwr-Rs-9Hd">
                                     <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SmA-g6-9Bg"/>
                                     <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zwh-pQ-Xcl">
                                         <connections>
@@ -163,60 +224,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olb-nn-pca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4054" y="265"/>
-        </scene>
-        <!--Workouts List View-->
-        <scene sceneID="IIn-JG-BPP">
-            <objects>
-                <tableViewController id="AkQ-kh-MC1" userLabel="Workouts List View" customClass="WorkoutsListViewController" customModule="FinalProject" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wsx-GX-Mrd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="xXa-VG-ot8">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem title="Title" id="UUk-DP-7wH">
-                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="xmY-j0-oqH"/>
-                                </navigationItem>
-                            </items>
-                        </navigationBar>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutCell" textLabel="xgn-tE-lue" style="IBUITableViewCellStyleDefault" id="e48-uq-bI0">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e48-uq-bI0" id="578-9g-A7O">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xgn-tE-lue">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Fhf-z2-JhP" kind="showDetail" identifier="LiftsViewSegue" id="i0O-bg-WRK"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="AkQ-kh-MC1" id="6BC-DK-01l"/>
-                            <outlet property="delegate" destination="AkQ-kh-MC1" id="5Mh-Hp-u7d"/>
-                        </connections>
-                    </tableView>
-                    <connections>
-                        <outlet property="doneButton" destination="Qb0-T7-U9H" id="nbE-Ew-YqP"/>
-                        <outlet property="editButton" destination="HIA-s3-NWR" id="bZ9-aw-XOd"/>
-                        <outlet property="workoutsListTable" destination="wsx-GX-Mrd" id="FwW-q3-Qpq"/>
-                        <outlet property="workoutsListViewTitle" destination="UUk-DP-7wH" id="1yT-aa-LZE"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2M5-xg-iqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem systemItem="edit" id="HIA-s3-NWR"/>
-                <barButtonItem systemItem="done" id="Qb0-T7-U9H" userLabel="Item"/>
-            </objects>
-            <point key="canvasLocation" x="2584" y="265"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="052-lf-W4w">

@@ -10,7 +10,7 @@ import CoreData
 import CoreDataService
 import UIKit
 
-class WorkoutsListViewController: UITableViewController, UIAlertViewDelegate, NSFetchedResultsControllerDelegate {
+class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, NSFetchedResultsControllerDelegate {
     
     var day: String?
     
@@ -44,14 +44,7 @@ class WorkoutsListViewController: UITableViewController, UIAlertViewDelegate, NS
     }
     
     // MARK: UITableView
-    func tableView(workoutsView: UITableView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("WorkoutCell", forIndexPath: indexPath) as! UITableViewCell
-        //cell.textLabel?.text = UITableViewCell(named: workouts[indexPath.item])
-        
-        return cell
-    }
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let result: Int
         
         if let someSections = workoutResultsController?.sections {
@@ -64,7 +57,7 @@ class WorkoutsListViewController: UITableViewController, UIAlertViewDelegate, NS
         return result
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let result: Int
         
         if let someSectionInfo = workoutResultsController?.sections?[section] as? NSFetchedResultsSectionInfo {
@@ -77,7 +70,7 @@ class WorkoutsListViewController: UITableViewController, UIAlertViewDelegate, NS
         return result
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("WorkoutCell", forIndexPath: indexPath) as! UITableViewCell
         if let someWorkout = workoutResultsController?.objectAtIndexPath(indexPath) as? Workout {
             cell.textLabel!.text = someWorkout.workoutName
@@ -86,7 +79,7 @@ class WorkoutsListViewController: UITableViewController, UIAlertViewDelegate, NS
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
         if workoutsListTable.editing && !horizontalSwipeToEditMode {
             workoutIndexForRename = indexPath.row
@@ -99,13 +92,13 @@ class WorkoutsListViewController: UITableViewController, UIAlertViewDelegate, NS
         }
     }
     
-    override func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
         navigationItem.setLeftBarButtonItem(doneButton, animated: true)
         
         horizontalSwipeToEditMode = true
     }
     
-    override func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
         navigationItem.setLeftBarButtonItem(editButton, animated: true)
         
         horizontalSwipeToEditMode = false
@@ -113,7 +106,7 @@ class WorkoutsListViewController: UITableViewController, UIAlertViewDelegate, NS
     
     /*
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             var workoutsToReindex: Array<Workout>?
             let numberOfRows = workoutsListTable.numberOfRowsInSection(0)
@@ -139,7 +132,7 @@ class WorkoutsListViewController: UITableViewController, UIAlertViewDelegate, NS
         }
     }
     
-    override func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
+    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
         return "Delete"
     }
     
@@ -270,7 +263,7 @@ class WorkoutsListViewController: UITableViewController, UIAlertViewDelegate, NS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.setLeftBarButtonItem(editButton, animated: false)
+        toolBar.setItems([editButton], animated: false)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -301,7 +294,7 @@ class WorkoutsListViewController: UITableViewController, UIAlertViewDelegate, NS
     private weak var workoutNameAlertView: UIAlertView?
     private var initializationFinishedToken: AnyObject?
     private var workoutResultsController: NSFetchedResultsController?
-    @IBOutlet weak var workoutsListViewTitle: UINavigationItem!
+    @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet private var doneButton: UIBarButtonItem!
     @IBOutlet private var editButton: UIBarButtonItem!
     @IBOutlet weak var workoutsListTable: UITableView!
