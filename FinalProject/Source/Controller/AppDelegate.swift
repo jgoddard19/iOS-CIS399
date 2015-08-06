@@ -2,10 +2,9 @@
 //  AppDelegate.swift
 //  FinalProject
 //
-//  Created by Charles Augustine.
+//  Created by Jared Goddard on 8/1/15.
 //
 //
-
 
 import CoreDataService
 import UIKit
@@ -13,16 +12,16 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-		CoreDataService.storeName = "FinalProject"
-		// The following line of code can be used to provide a data initializer to setup initial data in CoreData
-//		CoreDataService.dataInitializer = <#Data Initializer Instance#>
-		CoreDataService.sharedCoreDataService
-
-		return true
-	}
-
-	// MARK: Properties
-	var window: UIWindow?
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        CoreDataService.storeName = "FinalProject"
+        CoreDataService.dataInitializer = FinalProjectDataInitializer()
+        CoreDataService.sharedCoreDataService
+        
+        return true
+    }
+    
+    // MARK: Properties
+    var window: UIWindow?
 }
+
 

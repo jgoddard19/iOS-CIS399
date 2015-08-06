@@ -84,10 +84,21 @@ typedef struct _NSZone NSZone;
 #endif
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+@import CoreData;
+@import Darwin;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
+@class NSBundle;
+@class NSCoder;
+
+SWIFT_CLASS("_TtC12FinalProject21AddLiftViewController")
+@interface AddLiftViewController : UIViewController
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UIApplication;
 @class NSObject;
 @class UIWindow;
@@ -99,15 +110,25 @@ SWIFT_CLASS("_TtC12FinalProject11AppDelegate")
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class Workout;
+@class NSEntityDescription;
+@class NSManagedObjectContext;
+
+SWIFT_CLASS("_TtC12FinalProject3Day")
+@interface Day : NSManagedObject
++ (NSString * __nonnull)entityName;
+@property (nonatomic, copy) NSString * __nonnull dayName;
+@property (nonatomic) Workout * __nonnull workouts;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithEntity:(NSEntityDescription * __nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * __nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UITableView;
 @class NSIndexPath;
 @class UIStoryboardSegue;
 @class UITableViewCell;
-@class NSBundle;
-@class NSCoder;
 
 SWIFT_CLASS("_TtC12FinalProject21DayListViewController")
-@interface DayListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface DayListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 @property (nonatomic, copy) NSString * __nullable titleLabel;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
 - (NSInteger)tableView:(UITableView * __nonnull)tableView numberOfRowsInSection:(NSInteger)section;
@@ -122,20 +143,48 @@ SWIFT_CLASS("_TtC12FinalProject21DayListViewController")
 - (SWIFT_NULLABILITY(null_unspecified) instancetype)initWithCoder:(NSCoder * __null_unspecified)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSNumber;
+
+SWIFT_CLASS("_TtC12FinalProject4Lift")
+@interface Lift : NSManagedObject
++ (NSString * __nonnull)entityName;
+@property (nonatomic, copy) NSString * __nonnull liftName;
+@property (nonatomic) NSNumber * __nonnull sets;
+@property (nonatomic) NSNumber * __nonnull repsPerSet;
+@property (nonatomic) Workout * __nonnull workout;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithEntity:(NSEntityDescription * __nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * __nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC12FinalProject7Workout")
+@interface Workout : NSManagedObject
++ (NSString * __nonnull)entityName;
+@property (nonatomic, copy) NSString * __nonnull workoutName;
+@property (nonatomic) struct time_value time;
+@property (nonatomic) Day * __nonnull day;
+@property (nonatomic) Lift * __nonnull lift;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithEntity:(NSEntityDescription * __nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * __nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class UINavigationItem;
 
 SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
-@interface WorkoutsListViewController : UITableViewController
-@property (nonatomic, weak) IBOutlet UINavigationItem * __null_unspecified workoutsListViewTitle;
+@interface WorkoutsListViewController : UITableViewController <UIAlertViewDelegate, NSFetchedResultsControllerDelegate>
 @property (nonatomic, copy) NSString * __nullable day;
 @property (nonatomic, copy) NSArray * __nonnull workouts;
 - (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)workoutsView cellForItemAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
 - (NSInteger)tableView:(UITableView * __nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)tableView:(UITableView * __nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)tableView:(UITableView * __nonnull)tableView willBeginEditingRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)tableView:(UITableView * __nonnull)tableView didEndEditingRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewDidDisappear:(BOOL)animated;
-- (void)viewDidLoad;
-@property (nonatomic, weak) IBOutlet UITableView * __null_unspecified workoutsListView;
+@property (nonatomic) Day * __null_unspecified selectedDay;
+@property (nonatomic, weak) IBOutlet UINavigationItem * __null_unspecified workoutsListViewTitle;
+@property (nonatomic, weak) IBOutlet UITableView * __null_unspecified workoutsListTable;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(null_unspecified) instancetype)initWithNibName:(NSString * __null_unspecified)nibNameOrNil bundle:(NSBundle * __null_unspecified)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(null_unspecified) instancetype)initWithCoder:(NSCoder * __null_unspecified)aDecoder OBJC_DESIGNATED_INITIALIZER;

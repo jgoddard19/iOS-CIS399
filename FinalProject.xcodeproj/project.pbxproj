@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CD4FE2F1B698E6800DFA2E5 /* DayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE2E1B698E6800DFA2E5 /* DayService.swift */; };
-		1CD4FE351B69910100DFA2E5 /* DayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE341B69910100DFA2E5 /* DayListViewController.swift */; };
-		1CD4FE371B6A93BB00DFA2E5 /* WorkoutsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE361B6A93BB00DFA2E5 /* WorkoutsListViewController.swift */; };
-		562BB1381B55627000B73F46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562BB1371B55627000B73F46 /* AppDelegate.swift */; };
+		1C42D1111B6FF2C5003B597F /* Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42D1101B6FF2C5003B597F /* Lift.swift */; };
+		1C42D1131B6FF574003B597F /* FinalProjectDataInitializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42D1121B6FF574003B597F /* FinalProjectDataInitializer.swift */; };
+		1C42D1151B705C91003B597F /* FinalProjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42D1141B705C91003B597F /* FinalProjectDAO.swift */; };
+		1CA17F7E1B71200900EF5517 /* AddLiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17F7D1B71200900EF5517 /* AddLiftViewController.swift */; };
+		1CA17F801B72CDC800EF5517 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17F7F1B72CDC800EF5517 /* AppDelegate.swift */; };
+		1CD4FE3D1B6AFEB600DFA2E5 /* DayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE3B1B6AFEB600DFA2E5 /* DayListViewController.swift */; };
+		1CD4FE3E1B6AFEB600DFA2E5 /* WorkoutsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE3C1B6AFEB600DFA2E5 /* WorkoutsListViewController.swift */; };
+		1CD4FE411B6AFF7A00DFA2E5 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE401B6AFF7A00DFA2E5 /* Day.swift */; };
+		1CD4FE431B6B00A200DFA2E5 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE421B6B00A200DFA2E5 /* Workout.swift */; };
 		562BB13D1B55627000B73F46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562BB13B1B55627000B73F46 /* Main.storyboard */; };
 		562BB13F1B55627000B73F46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562BB13E1B55627000B73F46 /* Images.xcassets */; };
 		562BB1421B55627000B73F46 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562BB1401B55627000B73F46 /* LaunchScreen.xib */; };
@@ -76,12 +81,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1CD4FE2E1B698E6800DFA2E5 /* DayService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayService.swift; sourceTree = "<group>"; };
-		1CD4FE341B69910100DFA2E5 /* DayListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayListViewController.swift; path = FinalProject/DayListViewController.swift; sourceTree = SOURCE_ROOT; };
-		1CD4FE361B6A93BB00DFA2E5 /* WorkoutsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WorkoutsListViewController.swift; path = FinalProject/WorkoutsListViewController.swift; sourceTree = SOURCE_ROOT; };
+		1C42D1101B6FF2C5003B597F /* Lift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lift.swift; path = FinalProject/Source/Model/Lift.swift; sourceTree = SOURCE_ROOT; };
+		1C42D1121B6FF574003B597F /* FinalProjectDataInitializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinalProjectDataInitializer.swift; path = Source/Service/FinalProjectDataInitializer.swift; sourceTree = "<group>"; };
+		1C42D1141B705C91003B597F /* FinalProjectDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinalProjectDAO.swift; path = Source/Service/FinalProjectDAO.swift; sourceTree = "<group>"; };
+		1CA17F7D1B71200900EF5517 /* AddLiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLiftViewController.swift; sourceTree = "<group>"; };
+		1CA17F7F1B72CDC800EF5517 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CD4FE3B1B6AFEB600DFA2E5 /* DayListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayListViewController.swift; sourceTree = "<group>"; };
+		1CD4FE3C1B6AFEB600DFA2E5 /* WorkoutsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsListViewController.swift; sourceTree = "<group>"; };
+		1CD4FE401B6AFF7A00DFA2E5 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Day.swift; path = FinalProject/Source/Model/Day.swift; sourceTree = SOURCE_ROOT; };
+		1CD4FE421B6B00A200DFA2E5 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		562BB1321B55627000B73F46 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		562BB1361B55627000B73F46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		562BB1371B55627000B73F46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		562BB13C1B55627000B73F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		562BB13E1B55627000B73F46 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		562BB1411B55627000B73F46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -141,7 +151,8 @@
 		1CD4FE291B698D3900DFA2E5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				1CD4FE2E1B698E6800DFA2E5 /* DayService.swift */,
+				1C42D1121B6FF574003B597F /* FinalProjectDataInitializer.swift */,
+				1C42D1141B705C91003B597F /* FinalProjectDAO.swift */,
 			);
 			name = Service;
 			path = ..;
@@ -152,6 +163,17 @@
 			children = (
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		1CD4FE3F1B6AFF6400DFA2E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1CD4FE401B6AFF7A00DFA2E5 /* Day.swift */,
+				1CD4FE421B6B00A200DFA2E5 /* Workout.swift */,
+				1C42D1101B6FF2C5003B597F /* Lift.swift */,
+			);
+			name = Model;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		562BB1291B55627000B73F46 = {
@@ -218,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				562BB1591B5562E400B73F46 /* Controller */,
+				1CD4FE3F1B6AFF6400DFA2E5 /* Model */,
 				1CD4FE291B698D3900DFA2E5 /* Service */,
 				1CD4FE381B6AE8E600DFA2E5 /* View */,
 			);
@@ -227,9 +250,10 @@
 		562BB1591B5562E400B73F46 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				562BB1371B55627000B73F46 /* AppDelegate.swift */,
-				1CD4FE341B69910100DFA2E5 /* DayListViewController.swift */,
-				1CD4FE361B6A93BB00DFA2E5 /* WorkoutsListViewController.swift */,
+				1CA17F7F1B72CDC800EF5517 /* AppDelegate.swift */,
+				1CD4FE3B1B6AFEB600DFA2E5 /* DayListViewController.swift */,
+				1CD4FE3C1B6AFEB600DFA2E5 /* WorkoutsListViewController.swift */,
+				1CA17F7D1B71200900EF5517 /* AddLiftViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -471,11 +495,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				562BB1381B55627000B73F46 /* AppDelegate.swift in Sources */,
-				1CD4FE2F1B698E6800DFA2E5 /* DayService.swift in Sources */,
-				1CD4FE371B6A93BB00DFA2E5 /* WorkoutsListViewController.swift in Sources */,
+				1C42D1151B705C91003B597F /* FinalProjectDAO.swift in Sources */,
+				1CA17F7E1B71200900EF5517 /* AddLiftViewController.swift in Sources */,
+				1CD4FE3E1B6AFEB600DFA2E5 /* WorkoutsListViewController.swift in Sources */,
+				1CD4FE3D1B6AFEB600DFA2E5 /* DayListViewController.swift in Sources */,
+				1C42D1111B6FF2C5003B597F /* Lift.swift in Sources */,
+				1CD4FE411B6AFF7A00DFA2E5 /* Day.swift in Sources */,
 				56BEFEBE1B68C3E0006F0664 /* Model.xcdatamodeld in Sources */,
-				1CD4FE351B69910100DFA2E5 /* DayListViewController.swift in Sources */,
+				1CD4FE431B6B00A200DFA2E5 /* Workout.swift in Sources */,
+				1CA17F801B72CDC800EF5517 /* AppDelegate.swift in Sources */,
+				1C42D1131B6FF574003B597F /* FinalProjectDataInitializer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
