@@ -44,20 +44,16 @@ class DayListViewController: UITableViewController, UITableViewDataSource, UITab
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //performSegueWithIdentifier("DaySelectedSegue", sender: self)
+        performSegueWithIdentifier("DaySelectedSegue", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        switch segue.identifier {
-        case .Some("DaySelectedSegue"):
-            if let indexPath = daysTable.indexPathForSelectedRow(), let selectedDay = dayListResultsController?.objectAtIndexPath(indexPath) as? Day {
-                let workoutsListViewController = segue.destinationViewController as! WorkoutsListViewController
-                workoutsListViewController.selectedDay = selectedDay
+        if let indexPath = daysTable.indexPathForSelectedRow(), let selectedDay = dayListResultsController?.objectAtIndexPath(indexPath) as? Day {
+            let workoutsListViewController = segue.destinationViewController as! WorkoutsListViewController
+            workoutsListViewController.selectedDay = selectedDay
                 
-                daysTable.deselectRowAtIndexPath(indexPath, animated: true)
-            }
-        default:
-            super.prepareForSegue(segue, sender: sender)
+            daysTable.deselectRowAtIndexPath(indexPath, animated: true)
+            super.prepareForSegue(segue, sender: self)
         }
     }
     

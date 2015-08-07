@@ -166,6 +166,8 @@ SWIFT_CLASS("_TtC12FinalProject7Workout")
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithEntity:(NSEntityDescription * __nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * __nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIAlertView;
+@class UITextField;
 @class UIToolbar;
 
 SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
@@ -178,9 +180,12 @@ SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
 - (void)tableView:(UITableView * __nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 - (void)tableView:(UITableView * __nonnull)tableView willBeginEditingRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 - (void)tableView:(UITableView * __nonnull)tableView didEndEditingRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)tableView:(UITableView * __nonnull)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (NSString * __null_unspecified)tableView:(UITableView * __nonnull)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)alertView:(UIAlertView * __nonnull)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex;
+- (BOOL)textFieldShouldClear:(UITextField * __nonnull)textField;
+- (BOOL)textFieldShouldReturn:(UITextField * __nonnull)textField;
 - (void)viewDidLoad;
-- (void)viewWillAppear:(BOOL)animated;
-- (void)viewDidDisappear:(BOOL)animated;
 @property (nonatomic) Day * __null_unspecified selectedDay;
 @property (nonatomic, weak) IBOutlet UIToolbar * __null_unspecified toolBar;
 @property (nonatomic, weak) IBOutlet UITableView * __null_unspecified workoutsListTable;

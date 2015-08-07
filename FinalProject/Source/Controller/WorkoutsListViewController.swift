@@ -27,20 +27,19 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
     @IBAction private func edit(sender: AnyObject) {
         workoutsListTable.setEditing(true, animated: true)
         
-        navigationItem.setLeftBarButtonItem(doneButton, animated: true)
+        toolBar.setItems([doneButton], animated: false)
     }
     
     @IBAction private func done(sender: AnyObject) {
         workoutsListTable.setEditing(false, animated: true)
-        //horizontalSwipeToEditMode = false
         
-        navigationItem.setLeftBarButtonItem(editButton, animated: true)
+        toolBar.setItems([editButton], animated: false)
     }
     
     @IBAction private func addWorkout(sender: AnyObject) {
         addingNewWorkout = true
         
-//        presentNameWorkoutAlert()
+        addNewWorkoutAlert()
     }
     
     // MARK: UITableView
@@ -81,11 +80,11 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
-        if workoutsListTable.editing && !horizontalSwipeToEditMode {
+        if workoutsListTable.editing {
             workoutIndexForRename = indexPath.row
             
             addingNewWorkout = false
-//            presentNameWorkoutAlert()
+            addNewWorkoutAlert()
         }
         else {
             performSegueWithIdentifier("LiftsViewSegue", sender: self)
@@ -93,18 +92,14 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, willBeginEditingRowAtIndexPath indexPath: NSIndexPath) {
-        navigationItem.setLeftBarButtonItem(doneButton, animated: true)
-        
-        horizontalSwipeToEditMode = true
+        toolBar.setItems([doneButton], animated: true)
     }
     
     func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
-        navigationItem.setLeftBarButtonItem(editButton, animated: true)
-        
-        horizontalSwipeToEditMode = false
+        toolBar.setItems([editButton], animated: true)
     }
     
-    /*
+    
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
@@ -120,9 +115,7 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
             if let workout = workoutResultsController?.objectAtIndexPath(indexPath) as? Workout {
                 FinalProjectDAO.sharedFinalProjectDAO.deleteWorkout(workout, withSaveCompletionHandler: { (success, error) -> Void in
                     if success {
-                        if let someWorkouts = workoutsToReindex {
-                            FinalProjectDAO.sharedFinalProjectDAO.reindexWorkouts(someWorkouts, shiftForward: false)
-                        }
+                        
                     }
                     else {
                         println("Error deleting workout: \(error)")
@@ -145,6 +138,8 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    /*
+    
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         if buttonIndex != alertView.cancelButtonIndex {
             let workoutNameField = alertView.textFieldAtIndex(0)!
@@ -161,6 +156,8 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         addingNewWorkout = false;
         workoutIndexForRename = nil;
     }
+
+    */
     
     // MARK: UITextFieldDelegate
     func textFieldShouldClear(textField: UITextField) -> Bool {
@@ -176,7 +173,7 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     // MARK: Private
-    private func presentNameWorkoutAlert() {
+    private func addNewWorkoutAlert() {
         let title: String
         // let time:
         let message: String
@@ -212,26 +209,23 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         alertView.show()
         workoutNameAlertView = alertView
     }
-
-    */
     
     private func updateUIForSelectedDay() {
         if let someDay = selectedDay {
-            navigationItem.title = someDay.dayName
+            navigationItem.title = "\(someDay.dayName) workouts"
         }
         
         setupResultsController()
     }
     
     private func setupResultsController() {
-        if let resultsController = FinalProjectDAO.sharedFinalProjectDAO.fetchedResultsControllerForWorkoutList() {
+        if let someDay = selectedDay, let resultsController = FinalProjectDAO.sharedFinalProjectDAO.fetchedResultsControllerForWorkoutInDay(someDay) {
             resultsController.delegate = self
             workoutResultsController = resultsController
         }
         else {
             workoutResultsController = nil
         }
-        
         workoutsListTable.reloadData()
     }
     
@@ -247,7 +241,7 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
     // MARK: View Management
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier {
-        case .Some("LiftsViewSegue"):
+        case .Some("WorkoutSelectedSegue"):
             if let indexPath = workoutsListTable.indexPathForSelectedRow(), let selectedWorkout = workoutResultsController?.objectAtIndexPath(indexPath) as? Workout {
                 let workoutsListViewController = segue.destinationViewController as! AddLiftViewController
                 workoutsListViewController.selectedWorkout = selectedWorkout
@@ -263,15 +257,12 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         toolBar.setItems([editButton], animated: false)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        updateUIForSelectedDay()
     }
     
     // MARK: Properties
@@ -288,7 +279,6 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         unregisterForNotifications()
     }
     
-    private var horizontalSwipeToEditMode = false
     private var addingNewWorkout = false
     private var workoutIndexForRename: Int?
     private weak var workoutNameAlertView: UIAlertView?

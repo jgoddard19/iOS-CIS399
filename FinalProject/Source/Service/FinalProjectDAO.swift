@@ -37,11 +37,12 @@ class FinalProjectDAO: DataAccessObject {
         return result
     }
     
-    func fetchedResultsControllerForWorkoutList() -> NSFetchedResultsController? {
+    func fetchedResultsControllerForWorkoutInDay(day: Day) -> NSFetchedResultsController? {
         var result: NSFetchedResultsController?
         
         CoreDataService.sharedCoreDataService.beginSynchronousReadOnlyDataOperationForDataAccessObject(self, operation: { (context) -> Void in
             let fetchRequest = NSFetchRequest(namedEntity: Workout.self)
+            fetchRequest.predicate = NSPredicate(format: "day == %@", day)
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "workoutName", ascending: true)]
             fetchRequest.fetchBatchSize = 15
             
@@ -49,7 +50,7 @@ class FinalProjectDAO: DataAccessObject {
             
             var error: NSError?
             if !resultsController.performFetch(&error) {
-                println("Failed to perform fetch for workout list fetched results controller")
+                println("Failed to perform fetch for shelf list fetched results controller")
                 if let someError = error {
                     println(someError)
                 }
@@ -62,38 +63,39 @@ class FinalProjectDAO: DataAccessObject {
         return result
     }
     
-    /*
-    
-    func addWorkoutWithName(name: String, andOrderIndex orderIndex: Int) {
+    func addWorkoutWithName(workoutName: String, inDay day: Day) {
         CoreDataService.sharedCoreDataService.beginAsynchronousDataOperationForDataAccessObject(self, operation: { (context: NSManagedObjectContext, operationFinalizationHandler: OperationFinalizationHandler) -> Void in
             context.performBlock({ () -> Void in
+                let contextSpecificDay = CoreDataService.sharedCoreDataService.lookupManagedObject(day, appropriateForUseInContext: context)
                 let workout = NSEntityDescription.insertNewObjectForNamedEntity(Workout.self, inManagedObjectContext: context)
-                workout.workoutName = name
+                workout.workoutName = workoutName
+                workout.day = contextSpecificDay
                 
                 operationFinalizationHandler(save: true, saveCompletionHandler: nil)
             })
         })
     }
     
-    func renameBookShelf(workout: Workout, withNewName newName: String) {
+    func renameWorkout(workout: Workout, withNewName newName: String) {
         CoreDataService.sharedCoreDataService.beginAsynchronousDataOperationForDataAccessObject(self, operation: { (context: NSManagedObjectContext, operationFinalizationHandler: OperationFinalizationHandler) -> Void in
             context.performBlock({ () -> Void in
-                let contextSpecificBookShelf = CoreDataService.sharedCoreDataService.lookupManagedObject(workout, appropriateForUseInContext: context)
-                contextSpecificBookShelf.name = newName
+                let contextSpecificWorkout = CoreDataService.sharedCoreDataService.lookupManagedObject(workout, appropriateForUseInContext: context)
+                contextSpecificWorkout.workoutName = newName
                 
                 operationFinalizationHandler(save: true, saveCompletionHandler: nil)
             })
         })
     }
     
-    func deleteBookShelf(workout: Workout, withSaveCompletionHandler saveCompletionHandler: SaveCompletionHandler) {
-        // Perform a main queue operation for this event
+    func deleteWorkout(workout: Workout, withSaveCompletionHandler saveCompletionHandler: SaveCompletionHandler) {
         CoreDataService.sharedCoreDataService.beginMainQueueAsynchronousDataOperationForDataAccessObject(self, operation: { (context: NSManagedObjectContext, operationFinalizationHandler: OperationFinalizationHandler) -> Void in
             context.deleteObject(workout)
             
             operationFinalizationHandler(save: true, saveCompletionHandler: saveCompletionHandler)
         })
     }
+    
+    /*
     
     func addLiftWithName(name: String, andSets sets: Int, andReps reps: Int, inDay day: Day, inWorkout workout: Workout) {
         CoreDataService.sharedCoreDataService.beginAsynchronousDataOperationForDataAccessObject(self, operation: { (context: NSManagedObjectContext, operationFinalizationHandler: OperationFinalizationHandler) -> Void in
@@ -139,8 +141,8 @@ class FinalProjectDAO: DataAccessObject {
     
     // MARK: Initialization
     private init() {
-        // Intentionally left empty
     }
+    
     // MARK: Singleton
     static var sharedFinalProjectDAO = FinalProjectDAO()
 }

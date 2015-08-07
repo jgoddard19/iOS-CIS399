@@ -26,9 +26,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="s5Q-wu-6di" kind="show" id="WwI-Fd-Na0"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -39,6 +36,7 @@
                     <navigationItem key="navigationItem" title="Day List" id="v5U-L0-iYl"/>
                     <connections>
                         <outlet property="daysTable" destination="DnA-1e-fsX" id="xd9-su-gap"/>
+                        <segue destination="s5Q-wu-6di" kind="show" identifier="DaySelectedSegue" id="Swb-2H-37Y"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVb-D9-zhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -61,16 +59,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="U2x-Zp-lU9">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WorkoutCell" id="U2x-Zp-lU9">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U2x-Zp-lU9" id="lTH-YR-cl5">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Fhf-z2-JhP" kind="show" id="epX-ib-vdg"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="s5Q-wu-6di" id="cCm-eF-bD5"/>
+                                    <outlet property="delegate" destination="s5Q-wu-6di" id="UEp-rw-NbC"/>
+                                </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4AJ-4a-d4F">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -91,18 +90,31 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Workouts List" id="eF3-jt-dPN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fUB-QI-7JB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fUB-QI-7JB">
+                            <connections>
+                                <action selector="addWorkout:" destination="s5Q-wu-6di" id="U4Z-Y2-B9a"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="92U-mD-dgj" id="efZ-sV-XU4"/>
                         <outlet property="editButton" destination="X7q-q6-rYQ" id="2Hu-Oe-rvS"/>
                         <outlet property="toolBar" destination="4AJ-4a-d4F" id="d9i-iQ-78I"/>
                         <outlet property="workoutsListTable" destination="1Uw-VD-NdC" id="Dsj-KN-onO"/>
+                        <segue destination="Fhf-z2-JhP" kind="show" identifier="WorkoutSelectedSegue" id="sj9-Ep-teq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gHd-nz-s4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <barButtonItem systemItem="done" id="92U-mD-dgj"/>
-                <barButtonItem systemItem="edit" id="X7q-q6-rYQ"/>
+                <barButtonItem systemItem="done" id="92U-mD-dgj">
+                    <connections>
+                        <action selector="done:" destination="s5Q-wu-6di" id="IQp-DQ-DQI"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem systemItem="edit" id="X7q-q6-rYQ">
+                    <connections>
+                        <action selector="edit:" destination="s5Q-wu-6di" id="xfl-Q3-mo3"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="2573" y="265"/>
         </scene>

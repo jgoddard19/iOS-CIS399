@@ -4,27 +4,27 @@ provides:
 nominals:
 - "C12FinalProject11AppDelegate"
 class-members:
-- "application"
 - "window"
+- "application"
 top-level:
 - !private "BooleanLiteralType"
-- !private "FinalProjectDataInitializer"
+- "UIWindow"
+- "UIApplicationDelegate"
+- "UIApplication"
 - "Bool"
 - !private "CoreDataService"
-- "UIWindow"
-- !private "StringLiteralType"
 - "UIResponder"
-- "UIApplication"
-- "NSObject"
-- "UIApplicationDelegate"
+- !private "StringLiteralType"
 - "AnyObject"
+- "NSObject"
+- !private "FinalProjectDataInitializer"
 member-access:
-- !private "C15CoreDataService15CoreDataService"
-- "CSo8NSObject"
-- "CSo11UIResponder"
+- !private "C12FinalProject27FinalProjectDataInitializer"
 - "PSs9AnyObject"
 - "PSo21UIApplicationDelegate"
-- !private "C12FinalProject27FinalProjectDataInitializer"
+- "CSo11UIResponder"
+- "CSo8NSObject"
+- !private "C15CoreDataService15CoreDataService"
 - "C12FinalProject11AppDelegate"
 dynamic-lookup:
 cross-module:
