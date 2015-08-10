@@ -11,16 +11,13 @@ import UIKit
 
 class AddLiftViewController: UIViewController {
     
-    /*
-    
-    // MARK: Properties
-    var selectedWorkout: Workout! {
-        didSet {
-            if isViewLoaded() {
-                updateUIForSelectedWorkout()
-            }
-        }
-    }
-    
-    */
+//    // MARK: Properties
+//    var selectedWorkout: Workout! {
+//        didSet {
+//            if isViewLoaded() {
+//                updateUIForSelectedWorkout()
+//            }
+//        }
+//    }
+
 }

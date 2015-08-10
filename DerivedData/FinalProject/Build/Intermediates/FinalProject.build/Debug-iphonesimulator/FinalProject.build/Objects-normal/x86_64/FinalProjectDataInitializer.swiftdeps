@@ -5,21 +5,21 @@ nominals:
 - "C12FinalProject27FinalProjectDataInitializer"
 class-members:
 top-level:
-- "DataInitializer"
-- !private "Day"
-- !private "StringLiteralType"
 - "NSManagedObjectContext"
-- !private "NSEntityDescription"
+- !private "StringLiteralType"
 - !private "Workout"
+- !private "NSEntityDescription"
+- !private "Day"
+- "DataInitializer"
 member-access:
+- "P15CoreDataService15DataInitializer"
 - !private "C12FinalProject7Workout"
 - !private "C12FinalProject3Day"
-- !private "CSo15NSManagedObject"
-- !private "CSo8NSObject"
-- !private "CSo19NSEntityDescription"
-- "P15CoreDataService15DataInitializer"
-- "PSs9AnyObject"
 - "C12FinalProject27FinalProjectDataInitializer"
+- !private "CSo19NSEntityDescription"
+- !private "CSo15NSManagedObject"
+- "PSs9AnyObject"
+- !private "CSo8NSObject"
 dynamic-lookup:
 cross-module:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"

@@ -10,7 +10,7 @@ import CoreData
 import CoreDataService
 import UIKit
 
-class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, NSFetchedResultsControllerDelegate {
+class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextViewDelegate, NSFetchedResultsControllerDelegate {
     
     var day: String?
     
@@ -40,6 +40,7 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         addingNewWorkout = true
         
         addNewWorkoutAlert()
+        workoutsListTable.reloadData()
     }
     
     // MARK: UITableView
@@ -138,26 +139,22 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    /*
-    
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         if buttonIndex != alertView.cancelButtonIndex {
             let workoutNameField = alertView.textFieldAtIndex(0)!
             if addingNewWorkout {
-                FinalProjectDAO.sharedFinalProjectDAO.addWorkoutWithName(workoutNameField.text, andOrderIndex: workoutsListTable.numberOfRowsInSection(0))
+                FinalProjectDAO.sharedFinalProjectDAO.addWorkoutWithName(workoutNameField.text, inDay: selectedDay)
             }
-            else {
-                if let row = workoutIndexForRename, let workout = workoutResultsController?.objectAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? Workout {
-                    FinalProjectDAO.sharedFinalProjectDAO.renameWorkout(workout, withNewName: workoutNameField.text)
-                }
-            }
+//            else {
+//                if let row = workoutIndexForRename, let workout = workoutResultsController?.objectAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? Workout {
+//                    FinalProjectDAO.sharedFinalProjectDAO.renameWorkout(workout, withNewName: workoutNameField.text)
+//                }
+//            }
         }
         
         addingNewWorkout = false;
         workoutIndexForRename = nil;
     }
-
-    */
     
     // MARK: UITextFieldDelegate
     func textFieldShouldClear(textField: UITextField) -> Bool {
@@ -172,29 +169,72 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         return false
     }
     
+    // MARK: NSFetchedResultsControllerDelegate
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        if !ignoreUpdates {
+            workoutsListTable.beginUpdates()
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        if !ignoreUpdates {
+            switch type {
+            case .Delete:
+                workoutsListTable.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Left)
+            case .Insert:
+                workoutsListTable.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Left)
+            case .Update:
+                if let cell = workoutsListTable.cellForRowAtIndexPath(indexPath!), let workout = anObject as? Workout {
+                    cell.textLabel!.text = workout.workoutName
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        if !ignoreUpdates {
+            switch type {
+            case .Delete:
+                workoutsListTable.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Left)
+            case .Insert:
+                workoutsListTable.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Left)
+            default:
+                println("Unexpected change type in controller:didChangeSection:atIndex:forChangeType:")
+            }
+        }
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        if !ignoreUpdates {
+            workoutsListTable.endUpdates()
+        }
+    }
+    
     // MARK: Private
     private func addNewWorkoutAlert() {
         let title: String
         // let time:
         let message: String
         let initialText: String
-        if addingNewWorkout {
+//        if addingNewWorkout {
             title = "Add Workout"
             message = "Name your Workout:"
             initialText = ""
             //message = "Set workout time:"
-        }
-        else {
-            title = "Rename Workout"
-            message = "Rename your Workout:"
-            
-            if let item = workoutIndexForRename, someWorkout = workoutResultsController?.objectAtIndexPath(NSIndexPath(forItem: item, inSection: 0)) as? Workout {
-                initialText = someWorkout.workoutName
-            }
-            else {
-                initialText = ""
-            }
-        }
+//        }
+//        else {
+//            title = "Rename Workout"
+//            message = "Rename your Workout:"
+//            
+//            if let item = workoutIndexForRename, someWorkout = workoutResultsController?.objectAtIndexPath(NSIndexPath(forItem: item, inSection: 0)) as? Workout {
+//                initialText = someWorkout.workoutName
+//            }
+//            else {
+//                initialText = ""
+//            }
+//        }
         
         let alertView = UIAlertView(title: title, message: message, delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Done")
         alertView.alertViewStyle = .PlainTextInput
@@ -203,12 +243,24 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
             textField.clearButtonMode = .Always
             textField.placeholder = "Workout Name"
             textField.returnKeyType = .Done
-//            textField.delegate = self
+            //textField.delegate = self
         }
         
         alertView.show()
         workoutNameAlertView = alertView
     }
+    
+//    func textFieldShouldClear(textField: UITextField) -> Bool {
+//        return true
+//    }
+//    
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        if let alertView = workoutNameAlertView {
+//            alertView.dismissWithClickedButtonIndex(alertView.firstOtherButtonIndex, animated: true)
+//        }
+//        
+//        return false
+//    }
     
     private func updateUIForSelectedDay() {
         if let someDay = selectedDay {
@@ -236,24 +288,20 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-    /*
-    
-    // MARK: View Management
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        switch segue.identifier {
-        case .Some("WorkoutSelectedSegue"):
-            if let indexPath = workoutsListTable.indexPathForSelectedRow(), let selectedWorkout = workoutResultsController?.objectAtIndexPath(indexPath) as? Workout {
-                let workoutsListViewController = segue.destinationViewController as! AddLiftViewController
-                workoutsListViewController.selectedWorkout = selectedWorkout
-                
-                workoutsListTable.deselectRowAtIndexPath(indexPath, animated: true)
-            }
-        default:
-            super.prepareForSegue(segue, sender: sender)
-        }
-    }
-
-    */
+//    // MARK: View Management
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        switch segue.identifier {
+//        case .Some("WorkoutSelectedSegue"):
+//            if let indexPath = workoutsListTable.indexPathForSelectedRow(), let selectedWorkout = workoutResultsController?.objectAtIndexPath(indexPath) as? Workout {
+//                let workoutsListViewController = segue.destinationViewController as! AddLiftViewController
+//                workoutsListViewController.selectedWorkout = selectedWorkout
+//                
+//                workoutsListTable.deselectRowAtIndexPath(indexPath, animated: true)
+//            }
+//        default:
+//            super.prepareForSegue(segue, sender: sender)
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -280,6 +328,7 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     private var addingNewWorkout = false
+    private var ignoreUpdates = false
     private var workoutIndexForRename: Int?
     private weak var workoutNameAlertView: UIAlertView?
     private var initializationFinishedToken: AnyObject?

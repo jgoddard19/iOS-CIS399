@@ -21,6 +21,6 @@ class Day: NSManagedObject, NamedEntity {
     @NSManaged var dayName: String
     
     // MARK: Properties (Core Data Relationships)
-    @NSManaged var workouts: Workout
+    @NSManaged var workouts: NSSet
     
 }

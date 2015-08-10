@@ -4,23 +4,23 @@ provides:
 nominals:
 - "C12FinalProject4Lift"
 class-members:
+- "repsPerSet"
 - "entityName"
 - "liftName"
 - "workout"
-- "repsPerSet"
 - "sets"
 top-level:
-- "Workout"
-- "NSManagedObject"
 - "NamedEntity"
 - !private "StringLiteralType"
-- "NSNumber"
 - "String"
+- "Workout"
+- "NSNumber"
+- "NSManagedObject"
 member-access:
+- "CSo8NSObject"
 - "P15CoreDataService11NamedEntity"
 - "CSo15NSManagedObject"
 - "PSs9AnyObject"
-- "CSo8NSObject"
 - "C12FinalProject4Lift"
 dynamic-lookup:
 cross-module:

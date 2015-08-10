@@ -70,6 +70,7 @@ class FinalProjectDAO: DataAccessObject {
                 let workout = NSEntityDescription.insertNewObjectForNamedEntity(Workout.self, inManagedObjectContext: context)
                 workout.workoutName = workoutName
                 workout.day = contextSpecificDay
+                println("Adding workout. Name: \(workout.workoutName) day: \(workout.day)")
                 
                 operationFinalizationHandler(save: true, saveCompletionHandler: nil)
             })

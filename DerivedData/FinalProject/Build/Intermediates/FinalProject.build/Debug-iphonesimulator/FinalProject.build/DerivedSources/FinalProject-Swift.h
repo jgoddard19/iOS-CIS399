@@ -110,7 +110,7 @@ SWIFT_CLASS("_TtC12FinalProject11AppDelegate")
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class Workout;
+@class NSSet;
 @class NSEntityDescription;
 @class NSManagedObjectContext;
 
@@ -118,7 +118,7 @@ SWIFT_CLASS("_TtC12FinalProject3Day")
 @interface Day : NSManagedObject
 + (NSString * __nonnull)entityName;
 @property (nonatomic, copy) NSString * __nonnull dayName;
-@property (nonatomic) Workout * __nonnull workouts;
+@property (nonatomic) NSSet * __nonnull workouts;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithEntity:(NSEntityDescription * __nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * __nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -144,6 +144,7 @@ SWIFT_CLASS("_TtC12FinalProject21DayListViewController")
 @end
 
 @class NSNumber;
+@class Workout;
 
 SWIFT_CLASS("_TtC12FinalProject4Lift")
 @interface Lift : NSManagedObject
@@ -168,10 +169,12 @@ SWIFT_CLASS("_TtC12FinalProject7Workout")
 
 @class UIAlertView;
 @class UITextField;
+@class NSFetchedResultsController;
+@protocol NSFetchedResultsSectionInfo;
 @class UIToolbar;
 
 SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
-@interface WorkoutsListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, NSFetchedResultsControllerDelegate>
+@interface WorkoutsListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextViewDelegate, NSFetchedResultsControllerDelegate>
 @property (nonatomic, copy) NSString * __nullable day;
 @property (nonatomic, copy) NSArray * __nonnull workouts;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
@@ -183,8 +186,13 @@ SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
 - (void)tableView:(UITableView * __nonnull)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 - (NSString * __null_unspecified)tableView:(UITableView * __nonnull)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
 - (void)alertView:(UIAlertView * __nonnull)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex;
+- (void)alertView:(UIAlertView * __nonnull)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex;
 - (BOOL)textFieldShouldClear:(UITextField * __nonnull)textField;
 - (BOOL)textFieldShouldReturn:(UITextField * __nonnull)textField;
+- (void)controllerWillChangeContent:(NSFetchedResultsController * __nonnull)controller;
+- (void)controller:(NSFetchedResultsController * __nonnull)controller didChangeObject:(id __nonnull)anObject atIndexPath:(NSIndexPath * __nullable)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath * __nullable)newIndexPath;
+- (void)controller:(NSFetchedResultsController * __nonnull)controller didChangeSection:(id <NSFetchedResultsSectionInfo> __nonnull)sectionInfo atIndex:(NSInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type;
+- (void)controllerDidChangeContent:(NSFetchedResultsController * __nonnull)controller;
 - (void)viewDidLoad;
 @property (nonatomic) Day * __null_unspecified selectedDay;
 @property (nonatomic, weak) IBOutlet UIToolbar * __null_unspecified toolBar;
