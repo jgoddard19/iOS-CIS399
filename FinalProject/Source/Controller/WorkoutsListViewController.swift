@@ -40,7 +40,6 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         addingNewWorkout = true
         
         addNewWorkoutAlert()
-        workoutsListTable.reloadData()
     }
     
     // MARK: UITableView
@@ -88,7 +87,7 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
             addNewWorkoutAlert()
         }
         else {
-            performSegueWithIdentifier("LiftsViewSegue", sender: self)
+            performSegueWithIdentifier("WorkoutSelectedSegue", sender: self)
         }
     }
     
@@ -289,19 +288,19 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
 //    // MARK: View Management
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        switch segue.identifier {
-//        case .Some("WorkoutSelectedSegue"):
-//            if let indexPath = workoutsListTable.indexPathForSelectedRow(), let selectedWorkout = workoutResultsController?.objectAtIndexPath(indexPath) as? Workout {
-//                let workoutsListViewController = segue.destinationViewController as! AddLiftViewController
-//                workoutsListViewController.selectedWorkout = selectedWorkout
-//                
-//                workoutsListTable.deselectRowAtIndexPath(indexPath, animated: true)
-//            }
-//        default:
-//            super.prepareForSegue(segue, sender: sender)
-//        }
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segue.identifier {
+        case .Some("WorkoutSelectedSegue"):
+            if let indexPath = workoutsListTable.indexPathForSelectedRow(), let selectedWorkout = workoutResultsController?.objectAtIndexPath(indexPath) as? Workout {
+                let workoutsListViewController = segue.destinationViewController as! LiftsViewController
+                workoutsListViewController.selectedWorkout = selectedWorkout
+                
+                workoutsListTable.deselectRowAtIndexPath(indexPath, animated: true)
+            }
+        default:
+            super.prepareForSegue(segue, sender: sender)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

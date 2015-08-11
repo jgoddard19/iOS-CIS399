@@ -12,6 +12,7 @@
 		1C42D1151B705C91003B597F /* FinalProjectDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42D1141B705C91003B597F /* FinalProjectDAO.swift */; };
 		1CA17F7E1B71200900EF5517 /* AddLiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17F7D1B71200900EF5517 /* AddLiftViewController.swift */; };
 		1CA17F801B72CDC800EF5517 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17F7F1B72CDC800EF5517 /* AppDelegate.swift */; };
+		1CA17F841B791EC600EF5517 /* LiftsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA17F831B791EC600EF5517 /* LiftsViewController.swift */; };
 		1CD4FE3D1B6AFEB600DFA2E5 /* DayListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE3B1B6AFEB600DFA2E5 /* DayListViewController.swift */; };
 		1CD4FE3E1B6AFEB600DFA2E5 /* WorkoutsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE3C1B6AFEB600DFA2E5 /* WorkoutsListViewController.swift */; };
 		1CD4FE411B6AFF7A00DFA2E5 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4FE401B6AFF7A00DFA2E5 /* Day.swift */; };
@@ -86,6 +87,7 @@
 		1C42D1141B705C91003B597F /* FinalProjectDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinalProjectDAO.swift; path = Source/Service/FinalProjectDAO.swift; sourceTree = "<group>"; };
 		1CA17F7D1B71200900EF5517 /* AddLiftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLiftViewController.swift; sourceTree = "<group>"; };
 		1CA17F7F1B72CDC800EF5517 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CA17F831B791EC600EF5517 /* LiftsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftsViewController.swift; sourceTree = "<group>"; };
 		1CD4FE3B1B6AFEB600DFA2E5 /* DayListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayListViewController.swift; sourceTree = "<group>"; };
 		1CD4FE3C1B6AFEB600DFA2E5 /* WorkoutsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutsListViewController.swift; sourceTree = "<group>"; };
 		1CD4FE401B6AFF7A00DFA2E5 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Day.swift; path = FinalProject/Source/Model/Day.swift; sourceTree = SOURCE_ROOT; };
@@ -253,6 +255,7 @@
 				1CA17F7F1B72CDC800EF5517 /* AppDelegate.swift */,
 				1CD4FE3B1B6AFEB600DFA2E5 /* DayListViewController.swift */,
 				1CD4FE3C1B6AFEB600DFA2E5 /* WorkoutsListViewController.swift */,
+				1CA17F831B791EC600EF5517 /* LiftsViewController.swift */,
 				1CA17F7D1B71200900EF5517 /* AddLiftViewController.swift */,
 			);
 			path = Controller;
@@ -495,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CA17F841B791EC600EF5517 /* LiftsViewController.swift in Sources */,
 				1C42D1151B705C91003B597F /* FinalProjectDAO.swift in Sources */,
 				1CA17F7E1B71200900EF5517 /* AddLiftViewController.swift in Sources */,
 				1CD4FE3E1B6AFEB600DFA2E5 /* WorkoutsListViewController.swift in Sources */,

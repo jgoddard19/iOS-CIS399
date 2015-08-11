@@ -20,4 +20,5 @@ class AddLiftViewController: UIViewController {
 //        }
 //    }
 
+    @IBOutlet weak var doneButton: UIBarButtonItem!
 }

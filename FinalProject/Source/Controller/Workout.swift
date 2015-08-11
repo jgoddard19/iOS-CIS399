@@ -23,5 +23,5 @@ class Workout: NSManagedObject, NamedEntity {
     
     // MARK: Properties (Core Data Relationships)
     @NSManaged var day: Day
-    @NSManaged var lift: Lift
+    @NSManaged var lifts: NSSet
 }

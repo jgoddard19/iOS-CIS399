@@ -4,24 +4,24 @@ provides:
 nominals:
 - "C12FinalProject4Lift"
 class-members:
-- "repsPerSet"
+- "sets"
+- "workout"
 - "entityName"
 - "liftName"
-- "workout"
-- "sets"
+- "repsPerSet"
 top-level:
-- "NamedEntity"
-- !private "StringLiteralType"
-- "String"
-- "Workout"
 - "NSNumber"
 - "NSManagedObject"
+- "String"
+- !private "StringLiteralType"
+- "Workout"
+- "NamedEntity"
 member-access:
-- "CSo8NSObject"
 - "P15CoreDataService11NamedEntity"
+- "C12FinalProject4Lift"
 - "CSo15NSManagedObject"
 - "PSs9AnyObject"
-- "C12FinalProject4Lift"
+- "CSo8NSObject"
 dynamic-lookup:
 cross-module:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"

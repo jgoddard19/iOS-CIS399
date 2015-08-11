@@ -4,13 +4,16 @@ provides:
 nominals:
 - "C12FinalProject21AddLiftViewController"
 class-members:
+- "doneButton"
 top-level:
+- "UIBarButtonItem"
 - "UIViewController"
 member-access:
 - "CSo16UIViewController"
 - "CSo11UIResponder"
 - "PSs9AnyObject"
 - "CSo8NSObject"
+- "C12FinalProject21AddLiftViewController"
 dynamic-lookup:
 cross-module:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"

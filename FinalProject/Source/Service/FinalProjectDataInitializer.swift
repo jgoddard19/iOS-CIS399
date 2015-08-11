@@ -19,26 +19,24 @@ class FinalProjectDataInitializer: DataInitializer {
         var workout = NSEntityDescription.insertNewObjectForNamedEntity(Workout.self, inManagedObjectContext: context)
         workout.workoutName = "(Placeholder) Chest workout"
         workout.day = day
-//
-//        day.workouts = workout
         
-        //        var lift = NSEntityDescription.insertNewObjectForNamedEntity(Lift.self, inManagedObjectContext: context)
-        //        lift.liftName = "(Placeholder) Bench press"
-        //        lift.sets = 5
-        //        lift.repsPerSet = 5
-        //        lift.workout = workout
-        //
-        //        lift = NSEntityDescription.insertNewObjectForNamedEntity(Lift.self, inManagedObjectContext: context)
-        //        lift.liftName = "(Placeholder) Dumbbell incline press"
-        //        lift.sets = 5
-        //        lift.repsPerSet = 5
-        //        lift.workout = workout
-        //
-        //        lift = NSEntityDescription.insertNewObjectForNamedEntity(Lift.self, inManagedObjectContext: context)
-        //        lift.liftName = "(Placeholder) Dumbbell flys"
-        //        lift.sets = 3
-        //        lift.repsPerSet = 10
-        //        lift.workout = workout
+        var lift = NSEntityDescription.insertNewObjectForNamedEntity(Lift.self, inManagedObjectContext: context)
+        lift.liftName = "(Placeholder) Bench press"
+        lift.sets = 5
+        lift.repsPerSet = 5
+        lift.workout = workout
+
+        lift = NSEntityDescription.insertNewObjectForNamedEntity(Lift.self, inManagedObjectContext: context)
+        lift.liftName = "(Placeholder) Dumbbell incline press"
+        lift.sets = 5
+        lift.repsPerSet = 5
+        lift.workout = workout
+
+        lift = NSEntityDescription.insertNewObjectForNamedEntity(Lift.self, inManagedObjectContext: context)
+        lift.liftName = "(Placeholder) Dumbbell flys"
+        lift.sets = 3
+        lift.repsPerSet = 10
+        lift.workout = workout
         
         day = NSEntityDescription.insertNewObjectForNamedEntity(Day.self, inManagedObjectContext: context)
         day.dayName = "Tuesday"

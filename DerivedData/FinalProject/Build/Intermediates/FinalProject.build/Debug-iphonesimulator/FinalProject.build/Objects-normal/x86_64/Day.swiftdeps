@@ -5,19 +5,19 @@ nominals:
 - "C12FinalProject3Day"
 class-members:
 - "workouts"
-- "entityName"
 - "dayName"
+- "entityName"
 top-level:
 - "String"
-- "NamedEntity"
-- !private "StringLiteralType"
 - "NSManagedObject"
+- !private "StringLiteralType"
 - "NSSet"
+- "NamedEntity"
 member-access:
-- "CSo15NSManagedObject"
-- "C12FinalProject3Day"
 - "PSs9AnyObject"
 - "P15CoreDataService11NamedEntity"
+- "CSo15NSManagedObject"
+- "C12FinalProject3Day"
 - "CSo8NSObject"
 dynamic-lookup:
 cross-module:

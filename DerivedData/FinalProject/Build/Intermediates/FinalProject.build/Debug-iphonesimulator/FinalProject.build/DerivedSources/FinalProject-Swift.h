@@ -90,11 +90,13 @@ typedef struct _NSZone NSZone;
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
+@class UIBarButtonItem;
 @class NSBundle;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC12FinalProject21AddLiftViewController")
 @interface AddLiftViewController : UIViewController
+@property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified doneButton;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -157,13 +159,28 @@ SWIFT_CLASS("_TtC12FinalProject4Lift")
 @end
 
 
+SWIFT_CLASS("_TtC12FinalProject19LiftsViewController")
+@interface LiftsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+- (void)viewDidLoad;
+- (NSInteger)tableView:(UITableView * __nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+@property (nonatomic) Workout * __null_unspecified selectedWorkout;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified doneButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified editButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified addLiftsButton;
+@property (nonatomic, weak) IBOutlet UITableView * __null_unspecified liftsTable;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC12FinalProject7Workout")
 @interface Workout : NSManagedObject
 + (NSString * __nonnull)entityName;
 @property (nonatomic, copy) NSString * __nonnull workoutName;
 @property (nonatomic) struct time_value time;
 @property (nonatomic) Day * __nonnull day;
-@property (nonatomic) Lift * __nonnull lift;
+@property (nonatomic) NSSet * __nonnull lifts;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithEntity:(NSEntityDescription * __nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * __nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -193,6 +210,7 @@ SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
 - (void)controller:(NSFetchedResultsController * __nonnull)controller didChangeObject:(id __nonnull)anObject atIndexPath:(NSIndexPath * __nullable)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath * __nullable)newIndexPath;
 - (void)controller:(NSFetchedResultsController * __nonnull)controller didChangeSection:(id <NSFetchedResultsSectionInfo> __nonnull)sectionInfo atIndex:(NSInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type;
 - (void)controllerDidChangeContent:(NSFetchedResultsController * __nonnull)controller;
+- (void)prepareForSegue:(UIStoryboardSegue * __nonnull)segue sender:(id __nullable)sender;
 - (void)viewDidLoad;
 @property (nonatomic) Day * __null_unspecified selectedDay;
 @property (nonatomic, weak) IBOutlet UIToolbar * __null_unspecified toolBar;

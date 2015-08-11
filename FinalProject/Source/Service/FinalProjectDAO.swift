@@ -11,6 +11,7 @@ import CoreData
 import CoreDataService
 
 class FinalProjectDAO: DataAccessObject {
+    
     // MARK: DAO
     func fetchedResultsControllerForDayList() -> NSFetchedResultsController? {
         var result: NSFetchedResultsController?
@@ -44,6 +45,32 @@ class FinalProjectDAO: DataAccessObject {
             let fetchRequest = NSFetchRequest(namedEntity: Workout.self)
             fetchRequest.predicate = NSPredicate(format: "day == %@", day)
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "workoutName", ascending: true)]
+            fetchRequest.fetchBatchSize = 15
+            
+            let resultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            
+            var error: NSError?
+            if !resultsController.performFetch(&error) {
+                println("Failed to perform fetch for shelf list fetched results controller")
+                if let someError = error {
+                    println(someError)
+                }
+            }
+            else {
+                result = resultsController
+            }
+        })
+        
+        return result
+    }
+    
+    func fetchedResultsControllerForLiftInWorkout(workout: Workout) -> NSFetchedResultsController? {
+        var result: NSFetchedResultsController?
+        
+        CoreDataService.sharedCoreDataService.beginSynchronousReadOnlyDataOperationForDataAccessObject(self, operation: { (context) -> Void in
+            let fetchRequest = NSFetchRequest(namedEntity: Workout.self)
+            fetchRequest.predicate = NSPredicate(format: "workout == %@", workout)
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "liftName", ascending: true)]
             fetchRequest.fetchBatchSize = 15
             
             let resultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
