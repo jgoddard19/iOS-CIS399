@@ -2,22 +2,23 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Day" representedClassName="FinalProject.Day" syncable="YES">
         <attribute name="dayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="workouts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Workout" inverseName="day" inverseEntity="Workout" syncable="YES"/>
     </entity>
-    <entity name="Lift" representedClassName="FinalProject.Lift" parentEntity="Workout" syncable="YES">
+    <entity name="Lift" representedClassName="FinalProject.Lift" syncable="YES">
         <attribute name="liftName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="repsPerSet" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="sets" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="lifts" inverseEntity="Workout" syncable="YES"/>
     </entity>
-    <entity name="Workout" representedClassName="FinalProject.Workout" parentEntity="Day" syncable="YES">
+    <entity name="Workout" representedClassName="FinalProject.Workout" syncable="YES">
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="workoutName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="day" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="workouts" inverseEntity="Day" syncable="YES"/>
         <relationship name="lifts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lift" inverseName="workout" inverseEntity="Lift" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Day" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Day" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="Workout" positionX="-63" positionY="153" width="128" height="103"/>
         <element name="Lift" positionX="196" positionY="153" width="128" height="103"/>
     </elements>

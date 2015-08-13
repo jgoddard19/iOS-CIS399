@@ -10,29 +10,46 @@ import CoreData
 import CoreDataService
 import UIKit
 
-class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIAlertViewDelegate, NSFetchedResultsControllerDelegate {
     
-    private func updateUIForSelectedWorkout() {
-        if let someWorkout = selectedWorkout {
-            navigationItem.title = "Lifts for \(someWorkout.workoutName)"
+    // MARK: Properties
+    var lifts = Array<String>() {
+        didSet {
+            if(self.isViewLoaded()) {
+                liftsTable.reloadData()
+            }
         }
-        
-        setupResultsController()
     }
     
-    private func setupResultsController() {
-        if let someWorkout = selectedWorkout, let resultsController = FinalProjectDAO.sharedFinalProjectDAO.fetchedResultsControllerForLiftInWorkout(someWorkout) {
-            resultsController.delegate = self
-            liftResultsController = resultsController
+    // MARK: IBAction
+    @IBAction private func edit(sender: AnyObject) {
+        liftsTable.setEditing(true, animated: true)
+        
+        toolBar.setItems([doneButton], animated: false)
+    }
+    
+    @IBAction private func done(sender: AnyObject) {
+        liftsTable.setEditing(false, animated: true)
+        
+        toolBar.setItems([editButton], animated: false)
+    }
+    
+    @IBAction private func back(segue: UIStoryboardSegue) {
+        
+    }
+    
+    // MARK: UITableView
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        let result: Int
+        
+        if let someSections = liftResultsController?.sections {
+            result = someSections.count
         }
         else {
-            liftResultsController = nil
+            result = 0
         }
-        liftsTable.reloadData()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        return result
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,6 +74,158 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    // MARK: View Management
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segue.identifier {
+        case .Some("LiftSelectedSegue"):
+            if let indexPath = liftsTable.indexPathForSelectedRow(), let selectedLift = liftResultsController?.objectAtIndexPath(indexPath) as? Lift {
+                let editliftViewController = segue.destinationViewController as! EditLiftViewController
+                editliftViewController.selectedLift = selectedLift
+                
+                liftsTable.deselectRowAtIndexPath(indexPath, animated: true)
+            }
+        case .Some("AddLiftsSegue"):
+            let addliftViewController = segue.destinationViewController as! AddLiftViewController
+            addliftViewController.selectedWorkout = selectedWorkout
+        default:
+            super.prepareForSegue(segue, sender: sender)
+        }
+    }
+    
+    // MARK: UITableViewDataSource
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        liftsTable.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if !liftsTable.editing {
+            liftIndexForView = indexPath.row
+            
+            //performSegueWithIdentifier("LiftSelectedSegue", sender: self)
+        }
+    }
+    
+    
+    // Functionality for deleting lifts
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            var liftsToReindex: Array<Lift>?
+            let numberOfRows = liftsTable.numberOfRowsInSection(0)
+            if indexPath.row + 1 < numberOfRows {
+                if let lifts = liftResultsController?.fetchedObjects as? Array<Lift> {
+                    let reindexRange = NSMakeRange(indexPath.row + 1, numberOfRows - (indexPath.row + 1))
+                    liftsToReindex = ((lifts as NSArray).subarrayWithRange(reindexRange)) as? Array<Lift>
+                }
+            }
+            
+            if let lift = liftResultsController?.objectAtIndexPath(indexPath) as? Lift {
+                FinalProjectDAO.sharedFinalProjectDAO.deleteLift(lift, withSaveCompletionHandler: { (success, error) -> Void in
+                    if success {
+                        
+                    }
+                    else {
+                        println("Error deleting lift: \(error)")
+                    }
+                })
+            }
+        }
+    }
+    
+    // Delete button text display
+    func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
+        return "Delete"
+    }
+    
+    // MARK: NSFetchedResultsControllerDelegate
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        if !ignoreUpdates {
+            liftsTable.beginUpdates()
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        if !ignoreUpdates {
+            switch type {
+            case .Delete:
+                liftsTable.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Left)
+//            case .Insert:
+//                liftsTable.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Left)
+            case .Update:
+                if let cell = liftsTable.cellForRowAtIndexPath(indexPath!), let lift = anObject as? Lift {
+                    cell.textLabel!.text = lift.liftName
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        if !ignoreUpdates {
+            switch type {
+            case .Delete:
+                liftsTable.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Left)
+//            case .Insert:
+//                liftsTable.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Left)
+            default:
+                println("Unexpected change type in controller:didChangeSection:atIndex:forChangeType:")
+            }
+        }
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        if !ignoreUpdates {
+            liftsTable.endUpdates()
+        }
+    }
+    
+    // MARK: UIAlertViewDelegate
+//    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+//        if buttonIndex != alertView.cancelButtonIndex {
+//            let workoutTimeTextField = alertView.textFieldAtIndex(0)!
+//            if let someWorkout = selectedWorkout {
+//                FinalProjectDAO.sharedFinalProjectDAO.setWorkoutTime(someWorkout, withNewTime: workoutTimeTextField.text.toInt()! as time_value)
+//            }
+//        }
+//    }
+    
+    // MARK: UITextFieldDelegate
+    func textFieldShouldClear(textField: UITextField) -> Bool {
+        return true
+    }
+    
+    private func updateUIForSelectedWorkout() {
+        if let someWorkout = selectedWorkout {
+            navigationItem.title = "Lifts for \(someWorkout.workoutName)"
+        }
+        
+        setupResultsController()
+    }
+    
+    private func setupResultsController() {
+        if let someWorkout = selectedWorkout, let resultsController = FinalProjectDAO.sharedFinalProjectDAO.fetchedResultsControllerForLiftInWorkout(someWorkout) {
+            resultsController.delegate = self
+            liftResultsController = resultsController
+        }
+        else {
+            liftResultsController = nil
+        }
+        liftsTable.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        toolBar.setItems([editButton], animated: false)
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        updateUIForSelectedWorkout()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        liftsTable.reloadData()
+    }
+    
     // MARK: Properties
     var selectedWorkout: Workout! {
         didSet {
@@ -66,6 +235,9 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    private var liftIndexForView: Int?
+    private var ignoreUpdates = false
+    @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var addLiftsButton: UIBarButtonItem!

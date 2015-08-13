@@ -4,19 +4,19 @@ provides:
 nominals:
 - "C12FinalProject7Workout"
 class-members:
-- "workoutName"
 - "day"
+- "workoutName"
+- "lifts"
 - "entityName"
 - "time"
-- "lifts"
 top-level:
-- "String"
-- "NamedEntity"
-- "time_value"
-- "NSManagedObject"
 - !private "StringLiteralType"
-- "NSSet"
+- "time_value"
 - "Day"
+- "NamedEntity"
+- "String"
+- "NSManagedObject"
+- "NSSet"
 member-access:
 - "CSo8NSObject"
 - "CSo15NSManagedObject"

@@ -10,7 +10,7 @@ import CoreData
 import CoreDataService
 import UIKit
 
-class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextViewDelegate, NSFetchedResultsControllerDelegate {
+class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate, NSFetchedResultsControllerDelegate {
     
     var day: String?
     
@@ -24,6 +24,7 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     // MARK: IBAction
+    // Functions to changed the setEditing boolean and change toolbar items
     @IBAction private func edit(sender: AnyObject) {
         workoutsListTable.setEditing(true, animated: true)
         
@@ -43,6 +44,7 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     // MARK: UITableView
+    // Set up data in table
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let result: Int
         
@@ -78,8 +80,10 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         return cell
     }
     
+    // Set up on click
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    
+        
+        // Edit workout (not working yet)
         if workoutsListTable.editing {
             workoutIndexForRename = indexPath.row
             
@@ -87,6 +91,7 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
             addNewWorkoutAlert()
         }
         else {
+            // Go to lifts view
             performSegueWithIdentifier("WorkoutSelectedSegue", sender: self)
         }
     }
@@ -99,8 +104,7 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         toolBar.setItems([editButton], animated: true)
     }
     
-    
-    
+    // Functionality for deleting workouts
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             var workoutsToReindex: Array<Workout>?
@@ -125,6 +129,7 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    // Delete button text display
     func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String! {
         return "Delete"
     }
@@ -144,11 +149,11 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
             if addingNewWorkout {
                 FinalProjectDAO.sharedFinalProjectDAO.addWorkoutWithName(workoutNameField.text, inDay: selectedDay)
             }
-//            else {
-//                if let row = workoutIndexForRename, let workout = workoutResultsController?.objectAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? Workout {
-//                    FinalProjectDAO.sharedFinalProjectDAO.renameWorkout(workout, withNewName: workoutNameField.text)
-//                }
-//            }
+            else {
+                if let row = workoutIndexForRename, let workout = workoutResultsController?.objectAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? Workout {
+                    FinalProjectDAO.sharedFinalProjectDAO.renameWorkout(workout, withNewName: workoutNameField.text)
+                }
+            }
         }
         
         addingNewWorkout = false;
@@ -217,24 +222,10 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         // let time:
         let message: String
         let initialText: String
-//        if addingNewWorkout {
-            title = "Add Workout"
-            message = "Name your Workout:"
-            initialText = ""
-            //message = "Set workout time:"
-//        }
-//        else {
-//            title = "Rename Workout"
-//            message = "Rename your Workout:"
-//            
-//            if let item = workoutIndexForRename, someWorkout = workoutResultsController?.objectAtIndexPath(NSIndexPath(forItem: item, inSection: 0)) as? Workout {
-//                initialText = someWorkout.workoutName
-//            }
-//            else {
-//                initialText = ""
-//            }
-//        }
-        
+        title = "Add Workout"
+        message = "Name your Workout:"
+        initialText = ""
+    
         let alertView = UIAlertView(title: title, message: message, delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Done")
         alertView.alertViewStyle = .PlainTextInput
         
@@ -242,25 +233,14 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
             textField.clearButtonMode = .Always
             textField.placeholder = "Workout Name"
             textField.returnKeyType = .Done
-            //textField.delegate = self
+            textField.delegate = self
         }
         
         alertView.show()
         workoutNameAlertView = alertView
     }
     
-//    func textFieldShouldClear(textField: UITextField) -> Bool {
-//        return true
-//    }
-//    
-//    func textFieldShouldReturn(textField: UITextField) -> Bool {
-//        if let alertView = workoutNameAlertView {
-//            alertView.dismissWithClickedButtonIndex(alertView.firstOtherButtonIndex, animated: true)
-//        }
-//        
-//        return false
-//    }
-    
+    // Change title to reflect the day that was selected
     private func updateUIForSelectedDay() {
         if let someDay = selectedDay {
             navigationItem.title = "\(someDay.dayName) workouts"
@@ -287,17 +267,13 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
-//    // MARK: View Management
+    // MARK: View Management
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        switch segue.identifier {
-        case .Some("WorkoutSelectedSegue"):
-            if let indexPath = workoutsListTable.indexPathForSelectedRow(), let selectedWorkout = workoutResultsController?.objectAtIndexPath(indexPath) as? Workout {
-                let workoutsListViewController = segue.destinationViewController as! LiftsViewController
-                workoutsListViewController.selectedWorkout = selectedWorkout
-                
-                workoutsListTable.deselectRowAtIndexPath(indexPath, animated: true)
-            }
-        default:
+        if let indexPath = workoutsListTable.indexPathForSelectedRow(), let selectedWorkout = workoutResultsController?.objectAtIndexPath(indexPath) as? Workout {
+            let liftsListViewController = segue.destinationViewController as! LiftsViewController
+            liftsListViewController.selectedWorkout = selectedWorkout
+            
+            workoutsListTable.deselectRowAtIndexPath(indexPath, animated: true)
             super.prepareForSegue(segue, sender: sender)
         }
     }

@@ -90,12 +90,20 @@ typedef struct _NSZone NSZone;
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
+@class Workout;
+@class UITextField;
 @class UIBarButtonItem;
 @class NSBundle;
 @class NSCoder;
 
 SWIFT_CLASS("_TtC12FinalProject21AddLiftViewController")
 @interface AddLiftViewController : UIViewController
+- (void)viewDidLoad;
+@property (nonatomic) Workout * __null_unspecified selectedWorkout;
+@property (nonatomic, weak) IBOutlet UITextField * __null_unspecified repsPerSetTextField;
+@property (nonatomic, weak) IBOutlet UITextField * __null_unspecified setsTextField;
+@property (nonatomic, weak) IBOutlet UITextField * __null_unspecified liftNameTextField;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified addButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified doneButton;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -112,6 +120,7 @@ SWIFT_CLASS("_TtC12FinalProject11AppDelegate")
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSNumber;
 @class NSSet;
 @class NSEntityDescription;
 @class NSManagedObjectContext;
@@ -120,6 +129,7 @@ SWIFT_CLASS("_TtC12FinalProject3Day")
 @interface Day : NSManagedObject
 + (NSString * __nonnull)entityName;
 @property (nonatomic, copy) NSString * __nonnull dayName;
+@property (nonatomic) NSNumber * __nonnull orderIndex;
 @property (nonatomic) NSSet * __nonnull workouts;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithEntity:(NSEntityDescription * __nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * __nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -145,8 +155,21 @@ SWIFT_CLASS("_TtC12FinalProject21DayListViewController")
 - (SWIFT_NULLABILITY(null_unspecified) instancetype)initWithCoder:(NSCoder * __null_unspecified)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSNumber;
-@class Workout;
+@class Lift;
+
+SWIFT_CLASS("_TtC12FinalProject22EditLiftViewController")
+@interface EditLiftViewController : UIViewController <UITextFieldDelegate, NSFetchedResultsControllerDelegate>
+- (void)viewDidLoad;
+- (BOOL)textFieldShouldReturn:(UITextField * __nonnull)textField;
+@property (nonatomic) Lift * __null_unspecified selectedLift;
+@property (nonatomic, weak) IBOutlet UITextField * __null_unspecified repsPerSetTextField;
+@property (nonatomic, weak) IBOutlet UITextField * __null_unspecified setsTextField;
+@property (nonatomic, weak) IBOutlet UITextField * __null_unspecified liftNameTextField;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified doneButton;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS("_TtC12FinalProject4Lift")
 @interface Lift : NSManagedObject
@@ -158,13 +181,29 @@ SWIFT_CLASS("_TtC12FinalProject4Lift")
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithEntity:(NSEntityDescription * __nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * __nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSFetchedResultsController;
+@protocol NSFetchedResultsSectionInfo;
+@class UIToolbar;
 
 SWIFT_CLASS("_TtC12FinalProject19LiftsViewController")
-@interface LiftsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
-- (void)viewDidLoad;
+@interface LiftsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIAlertViewDelegate, NSFetchedResultsControllerDelegate>
+@property (nonatomic, copy) NSArray * __nonnull lifts;
+- (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;
 - (NSInteger)tableView:(UITableView * __nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell * __nonnull)tableView:(UITableView * __nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)prepareForSegue:(UIStoryboardSegue * __nonnull)segue sender:(id __nullable)sender;
+- (void)tableView:(UITableView * __nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)tableView:(UITableView * __nonnull)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (NSString * __null_unspecified)tableView:(UITableView * __nonnull)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath * __nonnull)indexPath;
+- (void)controllerWillChangeContent:(NSFetchedResultsController * __nonnull)controller;
+- (void)controller:(NSFetchedResultsController * __nonnull)controller didChangeObject:(id __nonnull)anObject atIndexPath:(NSIndexPath * __nullable)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath * __nullable)newIndexPath;
+- (void)controller:(NSFetchedResultsController * __nonnull)controller didChangeSection:(id <NSFetchedResultsSectionInfo> __nonnull)sectionInfo atIndex:(NSInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type;
+- (void)controllerDidChangeContent:(NSFetchedResultsController * __nonnull)controller;
+- (BOOL)textFieldShouldClear:(UITextField * __nonnull)textField;
+- (void)viewDidLoad;
+- (void)viewDidAppear:(BOOL)animated;
 @property (nonatomic) Workout * __null_unspecified selectedWorkout;
+@property (nonatomic, weak) IBOutlet UIToolbar * __null_unspecified toolBar;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified doneButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified editButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified addLiftsButton;
@@ -185,13 +224,9 @@ SWIFT_CLASS("_TtC12FinalProject7Workout")
 @end
 
 @class UIAlertView;
-@class UITextField;
-@class NSFetchedResultsController;
-@protocol NSFetchedResultsSectionInfo;
-@class UIToolbar;
 
 SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
-@interface WorkoutsListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextViewDelegate, NSFetchedResultsControllerDelegate>
+@interface WorkoutsListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate, NSFetchedResultsControllerDelegate>
 @property (nonatomic, copy) NSString * __nullable day;
 @property (nonatomic, copy) NSArray * __nonnull workouts;
 - (NSInteger)numberOfSectionsInTableView:(UITableView * __nonnull)tableView;

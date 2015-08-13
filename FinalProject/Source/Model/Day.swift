@@ -19,6 +19,7 @@ class Day: NSManagedObject, NamedEntity {
     
     // MARK: Properties (Core Data Attributes)
     @NSManaged var dayName: String
+    @NSManaged var orderIndex: NSNumber
     
     // MARK: Properties (Core Data Relationships)
     @NSManaged var workouts: NSSet

@@ -1,9 +1,10 @@
 version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
-options: "2b633e5a43f06e876c2deaa3e17f885c"
+options: "573cadd69b4bc90a59a3e740f31e2946"
 inputs: 
 - "/Users/jgoddard/Repos/finalProjectFixed/FinalProject/Source/Controller/LiftsViewController.swift"
 - "/Users/jgoddard/Repos/finalProjectFixed/FinalProject/Source/Service/FinalProjectDAO.swift"
 - "/Users/jgoddard/Repos/finalProjectFixed/FinalProject/Source/Controller/AddLiftViewController.swift"
+- "/Users/jgoddard/Repos/finalProjectFixed/FinalProject/Source/Controller/EditLiftViewController.swift"
 - "/Users/jgoddard/Repos/finalProjectFixed/FinalProject/Source/Controller/WorkoutsListViewController.swift"
 - "/Users/jgoddard/Repos/finalProjectFixed/FinalProject/Source/Controller/DayListViewController.swift"
 - "/Users/jgoddard/Repos/finalProjectFixed/FinalProject/Source/Model/Lift.swift"

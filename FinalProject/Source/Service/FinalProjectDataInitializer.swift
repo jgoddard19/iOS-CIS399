@@ -15,6 +15,7 @@ class FinalProjectDataInitializer: DataInitializer {
     func initializeDataForNewStoreInContext(context: NSManagedObjectContext) {
         var day = NSEntityDescription.insertNewObjectForNamedEntity(Day.self, inManagedObjectContext: context)
         day.dayName = "Monday"
+        day.orderIndex = 1
         
         var workout = NSEntityDescription.insertNewObjectForNamedEntity(Workout.self, inManagedObjectContext: context)
         workout.workoutName = "(Placeholder) Chest workout"
@@ -40,6 +41,7 @@ class FinalProjectDataInitializer: DataInitializer {
         
         day = NSEntityDescription.insertNewObjectForNamedEntity(Day.self, inManagedObjectContext: context)
         day.dayName = "Tuesday"
+        day.orderIndex = 2
         
         workout = NSEntityDescription.insertNewObjectForNamedEntity(Workout.self, inManagedObjectContext: context)
         workout.workoutName = "(Placeholder) Leg workout"
@@ -47,17 +49,22 @@ class FinalProjectDataInitializer: DataInitializer {
         
         day = NSEntityDescription.insertNewObjectForNamedEntity(Day.self, inManagedObjectContext: context)
         day.dayName = "Wednesday"
+        day.orderIndex = 3
         
         day = NSEntityDescription.insertNewObjectForNamedEntity(Day.self, inManagedObjectContext: context)
         day.dayName = "Thursday"
+        day.orderIndex = 4
         
         day = NSEntityDescription.insertNewObjectForNamedEntity(Day.self, inManagedObjectContext: context)
         day.dayName = "Friday"
+        day.orderIndex = 5
         
         day = NSEntityDescription.insertNewObjectForNamedEntity(Day.self, inManagedObjectContext: context)
         day.dayName = "Saturday"
+        day.orderIndex = 6
         
         day = NSEntityDescription.insertNewObjectForNamedEntity(Day.self, inManagedObjectContext: context)
         day.dayName = "Sunday"
+        day.orderIndex = 7
     }
 }

@@ -1,0 +1,10 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
+options: "bb24af5f1a2de228605f85816b7fc432"
+inputs: 
+- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Protocol/DataInitializer.swift"
+- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Extension/NSEntityDescription_Service.swift"
+- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Extension/NSManagedObject_Service.swift"
+- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/CoreDataService.swift"
+- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Extension/NSFetchRequest_Service.swift"
+- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Protocol/NamedEntity.swift"
+- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Protocol/DataAccessObject.swift"

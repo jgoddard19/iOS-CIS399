@@ -1,0 +1,43 @@
+### Swift dependencies file v0 ###
+provides:
+- "AppDelegate"
+nominals:
+- "C12FinalProject11AppDelegate"
+class-members:
+- "window"
+- "application"
+top-level:
+- !private "StringLiteralType"
+- "NSObject"
+- "UIResponder"
+- "UIWindow"
+- "Bool"
+- !private "BooleanLiteralType"
+- "UIApplication"
+- "UIApplicationDelegate"
+- !private "CoreDataService"
+- !private "FinalProjectDataInitializer"
+- "AnyObject"
+member-access:
+- "PSs9AnyObject"
+- "PSo21UIApplicationDelegate"
+- !private "C12FinalProject27FinalProjectDataInitializer"
+- "CSo8NSObject"
+- "C12FinalProject11AppDelegate"
+- "CSo11UIResponder"
+- !private "C15CoreDataService15CoreDataService"
+dynamic-lookup:
+cross-module:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/32/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/32/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/32/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/32/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/32/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/32/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/32/Security.swiftmodule"
+- "/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Products/Debug-iphonesimulator/CoreDataService.framework/Modules/CoreDataService.swiftmodule/i386.swiftmodule"
+- "/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Products/Debug-iphonesimulator/CoreDataService.framework/Headers/CoreDataService-Swift.h"
+- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/CoreDataService.h"
+- "/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Intermediates/FinalProject.build/Debug-iphonesimulator/CoreDataService.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/32/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/32/CoreImage.swiftmodule"
