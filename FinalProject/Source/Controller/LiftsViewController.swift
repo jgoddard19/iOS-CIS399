@@ -34,8 +34,11 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         toolBar.setItems([editButton], animated: false)
     }
     
-    @IBAction private func back(segue: UIStoryboardSegue) {
+    @IBAction private func add(sender: AnyObject) {
         
+    }
+    
+    @IBAction private func back(segue: UIStoryboardSegue) {
     }
     
     // MARK: UITableView
@@ -48,7 +51,6 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         else {
             result = 0
         }
-        
         return result
     }
     
@@ -61,7 +63,6 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         else {
             result = 0
         }
-        
         return result
     }
     
@@ -70,7 +71,6 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         if let someLift = liftResultsController?.objectAtIndexPath(indexPath) as? Lift {
             cell.textLabel!.text = someLift.liftName
         }
-        
         return cell
     }
     
@@ -179,14 +179,57 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     // MARK: UIAlertViewDelegate
-//    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
-//        if buttonIndex != alertView.cancelButtonIndex {
-//            let workoutTimeTextField = alertView.textFieldAtIndex(0)!
-//            if let someWorkout = selectedWorkout {
-//                FinalProjectDAO.sharedFinalProjectDAO.setWorkoutTime(someWorkout, withNewTime: workoutTimeTextField.text.toInt()! as time_value)
-//            }
-//        }
-//    }
+    func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
+        if let selectedIndexPath = liftsTable.indexPathForSelectedRow() {
+            liftsTable.deselectRowAtIndexPath(selectedIndexPath, animated: true)
+        }
+    }
+    
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+        let liftNameField = alertView.textFieldAtIndex(0)!
+        let liftSetsField = alertView.textFieldAtIndex(1)!
+        let liftRepsPerSetField = alertView.textFieldAtIndex(2)!
+        if buttonIndex != alertView.cancelButtonIndex {
+            FinalProjectDAO.sharedFinalProjectDAO.addLiftWithName(liftNameField.text, andSets: liftSetsField.text.toInt()!, andRepsPerSet: liftRepsPerSetField.text.toInt()!, inWorkout: selectedWorkout)
+        }
+    }
+    
+    // MARK: Private
+    private func addLiftAlert() {
+        let title: String
+        let message: String
+        let initialText: String
+        title = "Add Lift"
+        message = "Create your Lift:"
+        initialText = ""
+        
+        let alertView = UIAlertView(title: title, message: message, delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Done")
+        alertView.alertViewStyle = .LoginAndPasswordInput
+        
+        if let textField = alertView.textFieldAtIndex(0) {
+            textField.clearButtonMode = .Always
+            textField.placeholder = "Lift Name"
+            textField.returnKeyType = .Next
+            textField.delegate = self
+        }
+        if let textField = alertView.textFieldAtIndex(1) {
+            textField.secureTextEntry = false
+            textField.clearButtonMode = .Always
+            textField.placeholder = "Sets"
+            textField.returnKeyType = .Done
+            textField.delegate = self
+        }
+        if let textField = alertView.textFieldAtIndex(2) {
+            textField.secureTextEntry = false
+            textField.clearButtonMode = .Always
+            textField.placeholder = "Reps per set"
+            textField.returnKeyType = .Done
+            textField.delegate = self
+        }
+        
+        alertView.show()
+        liftNameAlertView = alertView
+    }
     
     // MARK: UITextFieldDelegate
     func textFieldShouldClear(textField: UITextField) -> Bool {
@@ -235,8 +278,11 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
+    private var addingNewLift = false
+    private weak var liftNameAlertView: UIAlertView?
     private var liftIndexForView: Int?
     private var ignoreUpdates = false
+    @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!

@@ -183,6 +183,7 @@ SWIFT_CLASS("_TtC12FinalProject4Lift")
 
 @class NSFetchedResultsController;
 @protocol NSFetchedResultsSectionInfo;
+@class UIAlertView;
 @class UIToolbar;
 
 SWIFT_CLASS("_TtC12FinalProject19LiftsViewController")
@@ -199,10 +200,13 @@ SWIFT_CLASS("_TtC12FinalProject19LiftsViewController")
 - (void)controller:(NSFetchedResultsController * __nonnull)controller didChangeObject:(id __nonnull)anObject atIndexPath:(NSIndexPath * __nullable)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath * __nullable)newIndexPath;
 - (void)controller:(NSFetchedResultsController * __nonnull)controller didChangeSection:(id <NSFetchedResultsSectionInfo> __nonnull)sectionInfo atIndex:(NSInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type;
 - (void)controllerDidChangeContent:(NSFetchedResultsController * __nonnull)controller;
+- (void)alertView:(UIAlertView * __nonnull)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex;
+- (void)alertView:(UIAlertView * __nonnull)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex;
 - (BOOL)textFieldShouldClear:(UITextField * __nonnull)textField;
 - (void)viewDidLoad;
 - (void)viewDidAppear:(BOOL)animated;
 @property (nonatomic) Workout * __null_unspecified selectedWorkout;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified addButton;
 @property (nonatomic, weak) IBOutlet UIToolbar * __null_unspecified toolBar;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified doneButton;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem * __null_unspecified editButton;
@@ -223,7 +227,6 @@ SWIFT_CLASS("_TtC12FinalProject7Workout")
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithEntity:(NSEntityDescription * __nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * __nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UIAlertView;
 
 SWIFT_CLASS("_TtC12FinalProject26WorkoutsListViewController")
 @interface WorkoutsListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UITextFieldDelegate, NSFetchedResultsControllerDelegate>
