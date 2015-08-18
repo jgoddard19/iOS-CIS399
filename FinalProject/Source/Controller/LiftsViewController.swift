@@ -10,7 +10,7 @@ import CoreData
 import CoreDataService
 import UIKit
 
-class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, UIAlertViewDelegate, NSFetchedResultsControllerDelegate {
+class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, NSFetchedResultsControllerDelegate {
     
     // MARK: Properties
     var lifts = Array<String>() {
@@ -34,8 +34,46 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         toolBar.setItems([editButton], animated: false)
     }
     
-    @IBAction private func add(sender: AnyObject) {
+    @IBAction func showActionSheetTapped(sender: AnyObject) {
+        //Create the AlertController
+        let addLiftAlertController: UIAlertController = UIAlertController(title: "Add lift", message: "Enter lift info", preferredStyle: UIAlertControllerStyle.Alert)
         
+        //Create and add the Cancel action
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in
+        }
+        addLiftAlertController.addAction(cancelAction)
+        //Create and add Add Lift
+        let addLiftAction = UIAlertAction(title: "Add Lift", style: .Default) { (_) in
+            let liftNameTextField = addLiftAlertController.textFields![0] as! UITextField
+            let liftSetsTextField = addLiftAlertController.textFields![1] as! UITextField
+            let liftRepsPerSetTextField = addLiftAlertController.textFields![2] as! UITextField
+            
+            FinalProjectDAO.sharedFinalProjectDAO.addLiftWithName(liftNameTextField.text, andSets: liftSetsTextField.text.toInt()!, andRepsPerSet: liftRepsPerSetTextField.text.toInt()!, inWorkout: self.selectedWorkout)
+        }
+        addLiftAction.enabled = true
+        addLiftAlertController.addAction(addLiftAction)
+        
+        //Add text boxes
+        addLiftAlertController.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Lift Name"
+            
+            NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
+                addLiftAction.enabled = textField.text != ""
+            }
+        }
+        
+        addLiftAlertController.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Sets"
+            textField.secureTextEntry = false
+        }
+        
+        addLiftAlertController.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Reps per set"
+            textField.secureTextEntry = false
+        }
+        
+        //Present the AlertController
+        self.presentViewController(addLiftAlertController, animated: true, completion: nil)
     }
     
     @IBAction private func back(segue: UIStoryboardSegue) {
@@ -84,9 +122,6 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 liftsTable.deselectRowAtIndexPath(indexPath, animated: true)
             }
-        case .Some("AddLiftsSegue"):
-            let addliftViewController = segue.destinationViewController as! AddLiftViewController
-            addliftViewController.selectedWorkout = selectedWorkout
         default:
             super.prepareForSegue(segue, sender: sender)
         }
@@ -99,8 +134,6 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         if !liftsTable.editing {
             liftIndexForView = indexPath.row
-            
-            //performSegueWithIdentifier("LiftSelectedSegue", sender: self)
         }
     }
     
@@ -147,8 +180,8 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
             switch type {
             case .Delete:
                 liftsTable.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Left)
-//            case .Insert:
-//                liftsTable.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Left)
+            case .Insert:
+                liftsTable.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Left)
             case .Update:
                 if let cell = liftsTable.cellForRowAtIndexPath(indexPath!), let lift = anObject as? Lift {
                     cell.textLabel!.text = lift.liftName
@@ -164,8 +197,8 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
             switch type {
             case .Delete:
                 liftsTable.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Left)
-//            case .Insert:
-//                liftsTable.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Left)
+            case .Insert:
+                liftsTable.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Left)
             default:
                 println("Unexpected change type in controller:didChangeSection:atIndex:forChangeType:")
             }
@@ -179,6 +212,9 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     // MARK: UIAlertViewDelegate
+    
+/*
+    
     func alertView(alertView: UIAlertView, willDismissWithButtonIndex buttonIndex: Int) {
         if let selectedIndexPath = liftsTable.indexPathForSelectedRow() {
             liftsTable.deselectRowAtIndexPath(selectedIndexPath, animated: true)
@@ -190,7 +226,7 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         let liftSetsField = alertView.textFieldAtIndex(1)!
         let liftRepsPerSetField = alertView.textFieldAtIndex(2)!
         if buttonIndex != alertView.cancelButtonIndex {
-            FinalProjectDAO.sharedFinalProjectDAO.addLiftWithName(liftNameField.text, andSets: liftSetsField.text.toInt()!, andRepsPerSet: liftRepsPerSetField.text.toInt()!, inWorkout: selectedWorkout)
+            FinalProjectDAO.sharedFinalProjectDAO.addLiftWithName(liftNameField.text, andSets: liftSetsField.text.toInt()!, andRepsPerSet: 5/*liftRepsPerSetField.text.toInt()!*/, inWorkout: selectedWorkout)
         }
     }
     
@@ -200,11 +236,11 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         let message: String
         let initialText: String
         title = "Add Lift"
-        message = "Create your Lift:"
+        message = "Create new Lift:"
         initialText = ""
         
         let alertView = UIAlertView(title: title, message: message, delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Done")
-        alertView.alertViewStyle = .LoginAndPasswordInput
+        alertView.alertViewStyle = UIAlertViewStyle.PlainTextInput
         
         if let textField = alertView.textFieldAtIndex(0) {
             textField.clearButtonMode = .Always
@@ -213,10 +249,9 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
             textField.delegate = self
         }
         if let textField = alertView.textFieldAtIndex(1) {
-            textField.secureTextEntry = false
             textField.clearButtonMode = .Always
             textField.placeholder = "Sets"
-            textField.returnKeyType = .Done
+            textField.returnKeyType = .Next
             textField.delegate = self
         }
         if let textField = alertView.textFieldAtIndex(2) {
@@ -230,10 +265,26 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         alertView.show()
         liftNameAlertView = alertView
     }
+
+
+*/
     
     // MARK: UITextFieldDelegate
     func textFieldShouldClear(textField: UITextField) -> Bool {
         return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if let alertView = liftNameAlertView {
+            if textField.returnKeyType == .Next {
+                alertView.textFieldAtIndex(2)!.becomeFirstResponder()
+            }
+            else {
+                alertView.dismissWithClickedButtonIndex(alertView.firstOtherButtonIndex, animated: true)
+            }
+        }
+        
+        return false
     }
     
     private func updateUIForSelectedWorkout() {
@@ -278,7 +329,6 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-    private var addingNewLift = false
     private weak var liftNameAlertView: UIAlertView?
     private var liftIndexForView: Int?
     private var ignoreUpdates = false
@@ -286,7 +336,6 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIBarButtonItem!
-    @IBOutlet weak var addLiftsButton: UIBarButtonItem!
     private var liftResultsController: NSFetchedResultsController?
     @IBOutlet weak var liftsTable: UITableView!
     

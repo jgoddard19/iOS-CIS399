@@ -168,14 +168,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Lifts List" id="XlQ-ZZ-hTP">
-                        <barButtonItem key="rightBarButtonItem" title="Add Lifts" id="u8M-gs-TC1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="u8M-gs-TC1">
                             <connections>
-                                <segue destination="FHp-0s-Z3M" kind="show" identifier="AddLiftsSegue" id="PMp-1v-7q0"/>
+                                <action selector="showActionSheetTapped:" destination="KWX-WO-5zJ" id="QGk-Ro-o8s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addLiftsButton" destination="u8M-gs-TC1" id="Ra2-kB-53T"/>
+                        <outlet property="addButton" destination="u8M-gs-TC1" id="Svs-km-hDZ"/>
                         <outlet property="doneButton" destination="vee-lB-Xhz" id="Ktk-Km-4Q1"/>
                         <outlet property="editButton" destination="FfN-Rx-Rj5" id="INg-pP-KdU"/>
                         <outlet property="liftsTable" destination="xtV-8U-tIZ" id="NSU-5w-G7K"/>
@@ -195,82 +195,6 @@
                 </barButtonItem>
             </objects>
             <point key="canvasLocation" x="3339" y="265"/>
-        </scene>
-        <!--Add Lift View-->
-        <scene sceneID="Z6r-zA-jhK">
-            <objects>
-                <viewController title="Add Lifts View" id="FHp-0s-Z3M" userLabel="Add Lift View" customClass="AddLiftViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wuO-Lu-AK8"/>
-                        <viewControllerLayoutGuide type="bottom" id="inn-Y1-cZ2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="z3j-57-Dpi">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lift name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g7z-va-Zkl">
-                                <rect key="frame" x="153" y="234" width="295" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="O8u-F6-UYk"/>
-                                    <constraint firstAttribute="width" constant="295" id="VxA-sw-Oxj"/>
-                                    <constraint firstAttribute="height" constant="30" id="vkm-5c-k2s"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sets" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y3Z-pq-nAh">
-                                <rect key="frame" x="221" y="298" width="159" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5R5-jf-yu5"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="pyB-Kc-49G"/>
-                                    <constraint firstAttribute="width" constant="159" id="yh5-Lf-vmZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reps per set" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aek-wx-3xP">
-                                <rect key="frame" x="221" y="336" width="159" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="cYO-3X-ZVL"/>
-                                    <constraint firstAttribute="width" constant="159" id="ujf-eK-KWB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Y3Z-pq-nAh" firstAttribute="centerX" secondItem="g7z-va-Zkl" secondAttribute="centerX" id="4fq-xn-Qyu"/>
-                            <constraint firstItem="Y3Z-pq-nAh" firstAttribute="top" secondItem="g7z-va-Zkl" secondAttribute="bottom" constant="34" id="4hD-fE-XT9"/>
-                            <constraint firstItem="aek-wx-3xP" firstAttribute="top" secondItem="Y3Z-pq-nAh" secondAttribute="bottom" constant="8" symbolic="YES" id="6iA-pM-9r2"/>
-                            <constraint firstItem="g7z-va-Zkl" firstAttribute="centerX" secondItem="z3j-57-Dpi" secondAttribute="centerX" id="boa-Jg-JWN"/>
-                            <constraint firstItem="Y3Z-pq-nAh" firstAttribute="leading" secondItem="aek-wx-3xP" secondAttribute="leading" id="caY-k6-UIa"/>
-                            <constraint firstItem="g7z-va-Zkl" firstAttribute="top" secondItem="wuO-Lu-AK8" secondAttribute="bottom" constant="170" id="pjX-wq-jyF"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Add Lifts" id="tRD-MT-h1X">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="0AK-Cs-XLI">
-                            <connections>
-                                <action selector="done:" destination="FHp-0s-Z3M" id="93B-Bo-VI1"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3cw-SW-pfV">
-                            <connections>
-                                <action selector="add:" destination="FHp-0s-Z3M" id="A96-16-WKt"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="addButton" destination="3cw-SW-pfV" id="EJS-6e-Hh0"/>
-                        <outlet property="doneButton" destination="0AK-Cs-XLI" id="qxv-wd-n9O"/>
-                        <outlet property="liftNameTextField" destination="g7z-va-Zkl" id="S4A-H9-VD7"/>
-                        <outlet property="repsPerSetTextField" destination="aek-wx-3xP" id="ien-rr-pwP"/>
-                        <outlet property="setsTextField" destination="Y3Z-pq-nAh" id="ZJT-ig-asa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="olb-nn-pca" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4124" y="-113"/>
         </scene>
         <!--Edit Lifts View-->
         <scene sceneID="IpN-MC-tiK">

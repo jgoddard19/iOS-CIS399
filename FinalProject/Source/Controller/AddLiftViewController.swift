@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+//NOT USED, using UIAlertController in LiftsViewController instead
+
 class AddLiftViewController: UIViewController {
     
     override func viewDidLoad() {
