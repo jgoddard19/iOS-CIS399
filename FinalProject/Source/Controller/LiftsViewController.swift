@@ -45,10 +45,19 @@ class LiftsViewController: UIViewController, UITableViewDataSource, UITableViewD
         //Create and add Add Lift
         let addLiftAction = UIAlertAction(title: "Add Lift", style: .Default) { (_) in
             let liftNameTextField = addLiftAlertController.textFields![0] as! UITextField
-            let liftSetsTextField = addLiftAlertController.textFields![1] as! UITextField
-            let liftRepsPerSetTextField = addLiftAlertController.textFields![2] as! UITextField
+            let setsTextField = addLiftAlertController.textFields![1] as! UITextField
+            let repsPerSetTextField = addLiftAlertController.textFields![2] as! UITextField
             
-            FinalProjectDAO.sharedFinalProjectDAO.addLiftWithName(liftNameTextField.text, andSets: liftSetsTextField.text.toInt()!, andRepsPerSet: liftRepsPerSetTextField.text.toInt()!, inWorkout: self.selectedWorkout)
+            if repsPerSetTextField.text != "" && setsTextField.text != "" && liftNameTextField.text != "" {
+                FinalProjectDAO.sharedFinalProjectDAO.addLiftWithName(liftNameTextField.text, andSets: setsTextField.text.toInt()!, andRepsPerSet: repsPerSetTextField.text.toInt()!, inWorkout: self.selectedWorkout)
+            }
+            else {
+                var alert = UIAlertView()
+                alert.title = "No slacking! All fields are required"
+                alert.addButtonWithTitle("Reevaluate bad choices")
+                alert.show()
+                return
+            }
         }
         addLiftAction.enabled = true
         addLiftAlertController.addAction(addLiftAction)

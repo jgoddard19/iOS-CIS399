@@ -145,13 +145,17 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
     
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         if buttonIndex != alertView.cancelButtonIndex {
-            let workoutNameField = alertView.textFieldAtIndex(0)!
+            let workoutNameTextField = alertView.textFieldAtIndex(0)!
             if addingNewWorkout {
-                FinalProjectDAO.sharedFinalProjectDAO.addWorkoutWithName(workoutNameField.text, inDay: selectedDay)
-            }
-            else {
-                if let row = workoutIndexForRename, let workout = workoutResultsController?.objectAtIndexPath(NSIndexPath(forRow: row, inSection: 0)) as? Workout {
-                    FinalProjectDAO.sharedFinalProjectDAO.renameWorkout(workout, withNewName: workoutNameField.text)
+                if workoutNameTextField.text != "" {
+                    FinalProjectDAO.sharedFinalProjectDAO.addWorkoutWithName(workoutNameTextField.text, inDay: selectedDay)
+                }
+                else {
+                    var alert = UIAlertView()
+                    alert.title = "I'm not sure I'd try a workout with no name..."
+                    alert.addButtonWithTitle("Reevaluate bad choices")
+                    alert.show()
+                    return
                 }
             }
         }
@@ -229,11 +233,11 @@ class WorkoutsListViewController: UIViewController, UITableViewDataSource, UITab
         let alertView = UIAlertView(title: title, message: message, delegate: self, cancelButtonTitle: "Cancel", otherButtonTitles: "Done")
         alertView.alertViewStyle = .PlainTextInput
         
-        if let textField = alertView.textFieldAtIndex(0) {
-            textField.clearButtonMode = .Always
-            textField.placeholder = "Workout Name"
-            textField.returnKeyType = .Done
-            textField.delegate = self
+        if let workoutNameTextField = alertView.textFieldAtIndex(0) {
+            workoutNameTextField.clearButtonMode = .Always
+            workoutNameTextField.placeholder = "Workout Name"
+            workoutNameTextField.returnKeyType = .Done
+            workoutNameTextField.delegate = self
         }
         
         alertView.show()

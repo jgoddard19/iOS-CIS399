@@ -28,8 +28,8 @@ class EditLiftViewController: UIViewController, UITextFieldDelegate, NSFetchedRe
         }
         else {
             var alert = UIAlertView()
-            alert.title = "All fields are required"
-            alert.addButtonWithTitle("Dismiss")
+            alert.title = "Why would you take that out? All fields are required"
+            alert.addButtonWithTitle("Reevaluate bad choices")
             alert.show()
             return
         }
