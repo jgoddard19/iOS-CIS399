@@ -1,71 +1,191 @@
 ### Swift dependencies file v0 ###
-provides:
-nominals:
-- "CSo15NSManagedObject"
-class-members:
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["CSo15NSManagedObject", ""]
+- ["CSo15NSManagedObject", "permanentObjectID"]
+provides-dynamic-lookup:
 - "permanentObjectID"
-top-level:
-- "NSManagedObject"
+depends-top-level:
 - "NSManagedObjectID"
 - !private "UnicodeScalarType"
-- !private "Array"
 - !private "NSError"
-- !private "!"
 - !private "StringLiteralType"
+- "NSManagedObject"
 - !private "println"
-member-access:
-- !private "PSs14CollectionType"
-- !private "Si"
-- !private "PSs9Sliceable"
-- !private "Su"
-- !private "SS"
-- !private "PSs11Reflectable"
-- !private "CSo17NSManagedObjectID"
-- !private "CSo22NSManagedObjectContext"
-- !private "VSs6UInt16"
+- !private "!"
+depends-member:
+- !private ["PSs9AnyObject", "init"]
+- !private ["PSs9AnyObject", "managedObjectContext"]
+- !private ["PSs9AnyObject", "objectID"]
+- !private ["PSs9AnyObject", "obtainPermanentIDsForObjects"]
+- ["PSs9AnyObject", "permanentObjectID"]
+- !private ["PSs9AnyObject", "println"]
+- !private ["PSs9AnyObject", "temporaryID"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Sb", "deinit"]
+- !private ["PSs25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs11BooleanType", "_getBuiltinLogicValue"]
+- !private ["PSs11CVarArgType", "init"]
+- !private ["PSs11CVarArgType", "managedObjectContext"]
+- !private ["PSs11CVarArgType", "objectID"]
+- !private ["PSs11CVarArgType", "obtainPermanentIDsForObjects"]
+- ["PSs11CVarArgType", "permanentObjectID"]
+- !private ["PSs11CVarArgType", "println"]
+- !private ["PSs11CVarArgType", "temporaryID"]
+- !private ["VSs9Character", "deinit"]
+- !private ["PSs10Comparable", "init"]
+- !private ["PSs28CustomDebugStringConvertible", "init"]
+- !private ["PSs23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs23CustomStringConvertible", "init"]
+- !private ["PSs23CustomStringConvertible", "managedObjectContext"]
+- !private ["PSs23CustomStringConvertible", "objectID"]
+- !private ["PSs23CustomStringConvertible", "obtainPermanentIDsForObjects"]
+- ["PSs23CustomStringConvertible", "permanentObjectID"]
+- !private ["PSs23CustomStringConvertible", "println"]
+- !private ["PSs23CustomStringConvertible", "temporaryID"]
+- !private ["Sd", "deinit"]
+- !private ["PSs9Equatable", "_getBuiltinLogicValue"]
+- !private ["PSs9Equatable", "init"]
+- !private ["PSs9Equatable", "managedObjectContext"]
+- !private ["PSs9Equatable", "objectID"]
+- !private ["PSs9Equatable", "obtainPermanentIDsForObjects"]
+- ["PSs9Equatable", "permanentObjectID"]
+- !private ["PSs9Equatable", "println"]
+- !private ["PSs9Equatable", "temporaryID"]
+- !private ["PSs41ExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["Sf", "deinit"]
+- !private ["PSs8Hashable", "_getBuiltinLogicValue"]
+- !private ["PSs8Hashable", "init"]
+- !private ["PSs8Hashable", "managedObjectContext"]
+- !private ["PSs8Hashable", "objectID"]
+- !private ["PSs8Hashable", "obtainPermanentIDsForObjects"]
+- ["PSs8Hashable", "permanentObjectID"]
+- !private ["PSs8Hashable", "println"]
+- !private ["PSs8Hashable", "temporaryID"]
+- !private ["Si", "deinit"]
+- !private ["VSs5Int16", "deinit"]
+- !private ["VSs5Int32", "deinit"]
+- !private ["VSs5Int64", "deinit"]
+- !private ["VSs4Int8", "deinit"]
+- !private ["PSs14MirrorPathType", "init"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "obtainPermanentIDsForObjects"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "temporaryID"]
+- !private ["PSo9NSLocking", "obtainPermanentIDsForObjects"]
+- !private ["CSo15NSManagedObject", "NSError"]
+- ["CSo15NSManagedObject", "NSManagedObjectID"]
+- !private ["CSo15NSManagedObject", "managedObjectContext"]
+- !private ["CSo15NSManagedObject", "objectID"]
+- ["CSo15NSManagedObject", "permanentObjectID"]
+- !private ["CSo15NSManagedObject", "println"]
+- !private ["CSo22NSManagedObjectContext", "obtainPermanentIDsForObjects"]
+- !private ["CSo17NSManagedObjectID", "temporaryID"]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSObject", "NSError"]
+- ["CSo8NSObject", "NSManagedObjectID"]
+- !private ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "managedObjectContext"]
+- !private ["CSo8NSObject", "objectID"]
+- !private ["CSo8NSObject", "obtainPermanentIDsForObjects"]
+- ["CSo8NSObject", "permanentObjectID"]
+- !private ["CSo8NSObject", "println"]
+- !private ["CSo8NSObject", "temporaryID"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "managedObjectContext"]
+- !private ["PSo16NSObjectProtocol", "objectID"]
+- !private ["PSo16NSObjectProtocol", "obtainPermanentIDsForObjects"]
+- ["PSo16NSObjectProtocol", "permanentObjectID"]
+- !private ["PSo16NSObjectProtocol", "println"]
+- !private ["PSo16NSObjectProtocol", "temporaryID"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["PSs16OutputStreamType", "init"]
+- !private ["PSs10Streamable", "init"]
+- !private ["SS", "init"]
+- !private ["PSs30StringInterpolationConvertible", "init"]
+- !private ["PSs24StringLiteralConvertible", "init"]
+- !private ["Su", "deinit"]
+- !private ["VSs6UInt16", "deinit"]
+- !private ["VSs6UInt32", "deinit"]
+- !private ["VSs6UInt64", "deinit"]
+- !private ["VSs5UInt8", "deinit"]
+- !private ["Sc", "deinit"]
+- !private ["PSs31UnicodeScalarLiteralConvertible", "init"]
+- !private ["PSs33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["PSs32_BuiltinStringLiteralConvertible", "init"]
+- !private ["PSs37_BuiltinUTF16StringLiteralConvertible", "init"]
+- !private ["PSs39_BuiltinUnicodeScalarLiteralConvertible", "init"]
+- !private ["PSs16_CocoaStringType", "init"]
+- !private ["PSs21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["PSs21_ObjectiveCBridgeable", "init"]
+- !private ["PSs12_Reflectable", "_getBuiltinLogicValue"]
+- !private ["PSs12_Reflectable", "init"]
+depends-nominal:
+- "PSs9AnyObject"
 - !private "Sb"
-- !private "PSs24ExtensibleCollectionType"
-- !private "PSs14_Sequence_Type"
-- !private "VSs5UInt8"
-- !private "PSs30RangeReplaceableCollectionType"
-- !private "PSs21MutableCollectionType"
-- !private "PSs21_ObjectiveCBridgeable"
-- !private "VSs4Int8"
-- !private "VSs5Int64"
-- !private "VSs5Int32"
-- !private "PSs9Printable"
-- !private "PSs15_CollectionType"
-- !private "PSs11__ArrayType"
-- !private "PSs10_Sliceable"
-- !private "PSs13_SequenceType"
-- !private "PSs12SequenceType"
-- !private "Sd"
-- !private "PSs14DebugPrintable"
-- !private "PSs23ArrayLiteralConvertible"
-- !private "PSs24_DestructorSafeContainer"
-- !private "Sc"
-- "CSo15NSManagedObject"
-- !private "PSs25_ExtensibleCollectionType"
-- !private "PSs16MutableSliceable"
+- !private "PSs25BooleanLiteralConvertible"
+- !private "PSs11BooleanType"
+- "PSs11CVarArgType"
 - !private "VSs9Character"
-- "CSo8NSObject"
-- !private "Sa"
-- !private "CSo8NSString"
-- !private "PSs10_ArrayType"
+- !private "PSs10Comparable"
+- !private "PSs28CustomDebugStringConvertible"
+- "PSs23CustomStringConvertible"
+- !private "Sd"
+- "PSs9Equatable"
+- !private "PSs41ExtendedGraphemeClusterLiteralConvertible"
 - !private "Sf"
+- "PSs8Hashable"
+- !private "Si"
 - !private "VSs5Int16"
+- !private "VSs5Int32"
+- !private "VSs5Int64"
+- !private "VSs4Int8"
+- !private "PSs14MirrorPathType"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo9NSLocking"
+- "CSo15NSManagedObject"
+- !private "CSo22NSManagedObjectContext"
+- !private "CSo17NSManagedObjectID"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "PSs16OutputStreamType"
+- !private "PSs10Streamable"
+- !private "SS"
+- !private "PSs30StringInterpolationConvertible"
+- !private "PSs24StringLiteralConvertible"
+- !private "Su"
+- !private "VSs6UInt16"
 - !private "VSs6UInt32"
 - !private "VSs6UInt64"
-dynamic-lookup:
-cross-module:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"
-- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/CoreDataService.h"
-- "/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Intermediates/FinalProject.build/Debug-iphonesimulator/CoreDataService.build/unextended-module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/UIKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Foundation.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Darwin.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Dispatch.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/ObjectiveC.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/CoreGraphics.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Security.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/CoreImage.swiftmodule"
+- !private "VSs5UInt8"
+- !private "Sc"
+- !private "PSs31UnicodeScalarLiteralConvertible"
+- !private "PSs33_BuiltinBooleanLiteralConvertible"
+- !private "PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible"
+- !private "PSs32_BuiltinStringLiteralConvertible"
+- !private "PSs37_BuiltinUTF16StringLiteralConvertible"
+- !private "PSs39_BuiltinUnicodeScalarLiteralConvertible"
+- !private "PSs16_CocoaStringType"
+- !private "PSs21_ObjectiveCBridgeable"
+- !private "PSs12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/jgoddard/Documents/CIS399/finalProjectFixed/CoreDataService/Source/CoreDataService.h"
+- "/Users/jgoddard/Documents/CIS399/finalProjectFixed/DerivedData/FinalProject/Build/Intermediates/FinalProject.build/Debug-iphonesimulator/CoreDataService.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+interface-hash: "bc84723f0120fd01247d08b1e8616ca8"

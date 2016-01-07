@@ -1,28 +1,60 @@
 ### Swift dependencies file v0 ###
-provides:
-nominals:
-- "CSo14NSFetchRequest"
-class-members:
-top-level:
-- "NamedEntity"
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["CSo14NSFetchRequest", ""]
+- ["CSo14NSFetchRequest", "init"]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "NamedEntity"
 - "NSFetchRequest"
-- "NSManagedObject"
-member-access:
+- !private "NSManagedObject"
+depends-member:
+- ["PSs9AnyObject", "init"]
+- ["PSs11CVarArgType", "init"]
+- ["PSs23CustomStringConvertible", "init"]
+- ["PSs9Equatable", "init"]
+- ["PSs8Hashable", "init"]
+- !private ["PSo8NSCoding", "init"]
+- ["PSo9NSCopying", "init"]
+- !private ["CSo14NSFetchRequest", "NSManagedObject"]
+- !private ["CSo14NSFetchRequest", "NamedEntity"]
+- ["CSo14NSFetchRequest", "init"]
+- !private ["CSo15NSManagedObject", "entityName"]
+- !private ["CSo8NSObject", "NSManagedObject"]
+- !private ["CSo8NSObject", "NamedEntity"]
+- !private ["CSo8NSObject", "entityName"]
+- ["CSo8NSObject", "init"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["CSo24NSPersistentStoreRequest", "NSManagedObject"]
+- !private ["CSo24NSPersistentStoreRequest", "NamedEntity"]
+- ["CSo24NSPersistentStoreRequest", "init"]
+- !private ["P15CoreDataService11NamedEntity", "entityName"]
+depends-nominal:
+- "PSs9AnyObject"
+- "PSs11CVarArgType"
+- "PSs23CustomStringConvertible"
+- "PSs9Equatable"
+- "PSs8Hashable"
+- !private "PSo8NSCoding"
+- "PSo9NSCopying"
 - "CSo14NSFetchRequest"
-- "CSo8NSObject"
 - !private "CSo15NSManagedObject"
-- !private "P15CoreDataService11NamedEntity"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
 - "CSo24NSPersistentStoreRequest"
-dynamic-lookup:
-cross-module:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"
-- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/CoreDataService.h"
-- "/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Intermediates/FinalProject.build/Debug-iphonesimulator/CoreDataService.build/unextended-module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/UIKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Foundation.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Darwin.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Dispatch.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/ObjectiveC.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/CoreGraphics.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Security.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/CoreImage.swiftmodule"
+- !private "P15CoreDataService11NamedEntity"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/jgoddard/Documents/CIS399/finalProjectFixed/CoreDataService/Source/CoreDataService.h"
+- "/Users/jgoddard/Documents/CIS399/finalProjectFixed/DerivedData/FinalProject/Build/Intermediates/FinalProject.build/Debug-iphonesimulator/CoreDataService.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+interface-hash: "c3cfeccf9824fa89b90cc98e06bd2278"

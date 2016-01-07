@@ -1,10 +1,11 @@
-version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
-options: "6008b96fdfb70d4d477547bd88292f38"
-inputs: 
-- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Protocol/DataInitializer.swift"
-- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Extension/NSEntityDescription_Service.swift"
-- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Extension/NSManagedObject_Service.swift"
-- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/CoreDataService.swift"
-- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Extension/NSFetchRequest_Service.swift"
-- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Protocol/NamedEntity.swift"
-- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/Protocol/DataAccessObject.swift"
+version: "Apple Swift version 2.1.1 (swiftlang-700.1.101.15 clang-700.1.81)"
+options: "3bd14607e6b8d4ea16e63312f1bdf4bf"
+build_time: [505520794, 925836000]
+inputs:
+  "/Users/jgoddard/Documents/CIS399/finalProjectFixed/CoreDataService/Source/Protocol/NamedEntity.swift": [491524076, 0]
+  "/Users/jgoddard/Documents/CIS399/finalProjectFixed/CoreDataService/Source/Extension/NSEntityDescription_Service.swift": [491524076, 0]
+  "/Users/jgoddard/Documents/CIS399/finalProjectFixed/CoreDataService/Source/Extension/NSManagedObject_Service.swift": !dirty [491524076, 0]
+  "/Users/jgoddard/Documents/CIS399/finalProjectFixed/CoreDataService/Source/Extension/NSFetchRequest_Service.swift": [491524076, 0]
+  "/Users/jgoddard/Documents/CIS399/finalProjectFixed/CoreDataService/Source/Protocol/DataInitializer.swift": [491524076, 0]
+  "/Users/jgoddard/Documents/CIS399/finalProjectFixed/CoreDataService/Source/CoreDataService.swift": !dirty [491524076, 0]
+  "/Users/jgoddard/Documents/CIS399/finalProjectFixed/CoreDataService/Source/Protocol/DataAccessObject.swift": [491524076, 0]

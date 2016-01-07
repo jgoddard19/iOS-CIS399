@@ -1,112 +1,688 @@
 ### Swift dependencies file v0 ###
-provides:
+provides-top-level:
 - "CoreDataServiceInitializationFinishedNotification"
 - "SaveCompletionHandler"
 - "OperationFinalizationHandler"
 - "SynchronousReadOnlyDataOperation"
 - "AsynchronousDataOperation"
 - "CoreDataService"
-nominals:
+provides-nominal:
 - "C15CoreDataService15CoreDataService"
-class-members:
-top-level:
-- !private "NSSQLiteStoreType"
-- "AsynchronousDataOperation"
-- "NSManagedObjectContext"
-- !private "!"
-- "StringLiteralType"
-- !private "NSNotificationCenter"
-- "Dictionary"
-- !private "CoreDataServiceInitializationFinishedNotification"
-- "OperationFinalizationHandler"
-- !private "println"
-- "DataAccessObject"
-- "dispatch_queue_create"
-- "NSError"
-- "NSPersistentStoreCoordinator"
-- !private "dispatch_get_main_queue"
-- !private "NSBundle"
-- !private "dispatch_async"
-- !private "NSURL"
-- !private "abort"
-- !private "NSSearchPathForDirectoriesInDomains"
-- "SaveCompletionHandler"
-- "NSManagedObject"
-- "Bool"
+provides-member:
+- ["C15CoreDataService15CoreDataService", ""]
+provides-dynamic-lookup:
+depends-top-level:
 - "NSUUID"
-- "DataInitializer"
+- !private "NSURL"
 - "BooleanLiteralType"
-- "SynchronousReadOnlyDataOperation"
-- "CoreDataService"
-- "NSManagedObjectModel"
-- !private "NSFileManager"
+- !private "dispatch_get_main_queue"
+- !private "abort"
+- !private "!="
 - "Void"
+- "Dictionary"
+- !private "dispatch_async"
+- !private "NSManagedObject"
+- !private "NSSearchPathForDirectoriesInDomains"
+- !private "NSNotificationCenter"
+- !private "println"
+- !private "!"
+- !private "String"
+- "NSError"
+- "CoreDataService"
+- "OperationFinalizationHandler"
+- "AsynchronousDataOperation"
+- !private "NSMigratePersistentStoresAutomaticallyOption"
+- "NSManagedObjectContext"
+- "CoreDataServiceInitializationFinishedNotification"
+- !private "NSFileManager"
+- !private "NSSQLiteStoreType"
+- !private "NSBundle"
+- "NSManagedObjectModel"
 - !private "NSInferMappingModelAutomaticallyOption"
 - !private "NSManagedObjectContextConcurrencyType"
-- !private "String"
-- !private "=="
-- !private "!="
-- !private "NSMigratePersistentStoresAutomaticallyOption"
+- "dispatch_queue_create"
+- "StringLiteralType"
 - !private "dispatch_sync"
-member-access:
-- "PSs13_SequenceType"
-- !private "VSs5UInt8"
-- "VSs10Dictionary"
-- "PSs11Reflectable"
-- !private "CSo5NSURL"
-- !private "VSs6UInt16"
-- "PSs14DebugPrintable"
-- !private "CSo6NSUUID"
-- "PSs9Printable"
-- "VSs13UnsafePointer"
-- !private "CSo22NSManagedObjectContext"
-- !private "CSo28NSPersistentStoreCoordinator"
-- !private "Sc"
-- !private "CSo8NSObject"
-- !private "Sq"
-- !private "VSs9Character"
-- !private "VSs6UInt32"
-- !private "Su"
-- !private "P15CoreDataService15DataInitializer"
-- "C15CoreDataService15CoreDataService"
-- !private "Sa"
-- !private "CSo8NSString"
-- !private "Sd"
-- !private "Si"
+- "SynchronousReadOnlyDataOperation"
+- "NSPersistentStoreCoordinator"
+- "Bool"
+- !private "=="
+- "DataAccessObject"
+- "DataInitializer"
+- "SaveCompletionHandler"
+depends-member:
+- ["PSs9AnyObject", "CoreDataService"]
+- !private ["PSs9AnyObject", "CoreDataServiceInitializationFinishedNotification"]
+- !private ["PSs9AnyObject", "NSBundle"]
+- !private ["PSs9AnyObject", "NSFileManager"]
+- !private ["PSs9AnyObject", "NSInferMappingModelAutomaticallyOption"]
+- !private ["PSs9AnyObject", "NSManagedObjectContext"]
+- !private ["PSs9AnyObject", "NSManagedObjectContextConcurrencyType"]
+- !private ["PSs9AnyObject", "NSManagedObjectModel"]
+- !private ["PSs9AnyObject", "NSMigratePersistentStoresAutomaticallyOption"]
+- !private ["PSs9AnyObject", "NSNotificationCenter"]
+- !private ["PSs9AnyObject", "NSPersistentStoreCoordinator"]
+- !private ["PSs9AnyObject", "NSSQLiteStoreType"]
+- !private ["PSs9AnyObject", "NSSearchPathForDirectoriesInDomains"]
+- !private ["PSs9AnyObject", "NSURL"]
+- !private ["PSs9AnyObject", "NSUUID"]
+- !private ["PSs9AnyObject", "URLForResource"]
+- !private ["PSs9AnyObject", "abort"]
+- !private ["PSs9AnyObject", "addPersistentStoreWithType"]
+- !private ["PSs9AnyObject", "beginAsynchronousDataOperationForDataAccessObject"]
+- !private ["PSs9AnyObject", "cleanupManagedObjectContextForAsynchronousDataOperation"]
+- !private ["PSs9AnyObject", "createDirectoryAtPath"]
+- !private ["PSs9AnyObject", "dataInitializer"]
+- !private ["PSs9AnyObject", "defaultCenter"]
+- !private ["PSs9AnyObject", "defaultManager"]
+- !private ["PSs9AnyObject", "dispatch_async"]
+- !private ["PSs9AnyObject", "dispatch_get_main_queue"]
+- ["PSs9AnyObject", "dispatch_queue_create"]
+- !private ["PSs9AnyObject", "dispatch_sync"]
+- !private ["PSs9AnyObject", "fileExistsAtPath"]
+- !private ["PSs9AnyObject", "fileURLWithPath"]
+- ["PSs9AnyObject", "init"]
+- !private ["PSs9AnyObject", "initializationFinished"]
+- !private ["PSs9AnyObject", "mainBundle"]
+- !private ["PSs9AnyObject", "mainQueueContext"]
+- !private ["PSs9AnyObject", "managedObjectContextForAsynchronousDataOperation"]
+- !private ["PSs9AnyObject", "managedObjectModel"]
+- !private ["PSs9AnyObject", "modelName"]
+- !private ["PSs9AnyObject", "objectWithID"]
+- !private ["PSs9AnyObject", "parentContext"]
+- !private ["PSs9AnyObject", "performBlock"]
+- !private ["PSs9AnyObject", "persistentStoreCoordinator"]
+- !private ["PSs9AnyObject", "postNotificationName"]
+- !private ["PSs9AnyObject", "println"]
+- !private ["PSs9AnyObject", "removeItemAtPath"]
+- !private ["PSs9AnyObject", "reset"]
+- !private ["PSs9AnyObject", "rollback"]
+- !private ["PSs9AnyObject", "rootContext"]
+- !private ["PSs9AnyObject", "save"]
+- !private ["PSs9AnyObject", "saveRootContext"]
+- !private ["PSs9AnyObject", "undoManager"]
+- !private ["PSs9AnyObject", "writingOperationContexts"]
+- !private ["PSs9AnyObject", "writingOperationContextsAccessQueue"]
+- ["PSs9AnyObject", ""]
+- !private ["Sa", "Generator"]
+- !private ["Sa", "Index"]
+- !private ["Sa", "SubSequence"]
+- !private ["Sa", "_Element"]
+- !private ["Sa", "first"]
+- !private ["PSs23ArrayLiteralConvertible", "Generator"]
+- !private ["PSs23ArrayLiteralConvertible", "Index"]
+- !private ["PSs23ArrayLiteralConvertible", "SubSequence"]
+- !private ["PSs23ArrayLiteralConvertible", "UserDomainMask"]
+- !private ["PSs23ArrayLiteralConvertible", "_Element"]
+- !private ["PSs23ArrayLiteralConvertible", "first"]
+- !private ["VSs10ArraySlice", "Generator"]
+- !private ["VSs10ArraySlice", "Index"]
+- !private ["PSs22BidirectionalIndexType", "Distance"]
+- !private ["PSs22BidirectionalIndexType", "IntegerLiteralType"]
+- !private ["PSs21BitwiseOperationsType", "Distance"]
+- !private ["PSs21BitwiseOperationsType", "IntegerLiteralType"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Sb", "deinit"]
+- !private ["PSs25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs11BooleanType", "_getBuiltinLogicValue"]
+- !private ["PSs11CVarArgType", "Distance"]
+- !private ["PSs11CVarArgType", "IntegerLiteralType"]
+- !private ["PSs11CVarArgType", "URLForResource"]
+- !private ["PSs11CVarArgType", "addPersistentStoreWithType"]
+- !private ["PSs11CVarArgType", "createDirectoryAtPath"]
+- !private ["PSs11CVarArgType", "defaultCenter"]
+- !private ["PSs11CVarArgType", "defaultManager"]
+- !private ["PSs11CVarArgType", "fileExistsAtPath"]
+- !private ["PSs11CVarArgType", "fileURLWithPath"]
+- !private ["PSs11CVarArgType", "init"]
+- !private ["PSs11CVarArgType", "mainBundle"]
+- !private ["PSs11CVarArgType", "objectWithID"]
+- !private ["PSs11CVarArgType", "parentContext"]
+- !private ["PSs11CVarArgType", "performBlock"]
+- !private ["PSs11CVarArgType", "persistentStoreCoordinator"]
+- !private ["PSs11CVarArgType", "postNotificationName"]
+- !private ["PSs11CVarArgType", "removeItemAtPath"]
+- !private ["PSs11CVarArgType", "reset"]
+- !private ["PSs11CVarArgType", "rollback"]
+- !private ["PSs11CVarArgType", "save"]
+- !private ["PSs11CVarArgType", "undoManager"]
+- !private ["VSs9Character", "deinit"]
+- !private ["PSs14CollectionType", "Generator"]
+- !private ["PSs14CollectionType", "Index"]
+- ["PSs14CollectionType", "Key"]
+- !private ["PSs14CollectionType", "SubSequence"]
+- ["PSs14CollectionType", "Value"]
+- !private ["PSs14CollectionType", "_Element"]
+- !private ["PSs14CollectionType", "first"]
+- !private ["PSs14CollectionType", "removeValueForKey"]
+- !private ["PSs14CollectionType", "subscript"]
+- !private ["PSs10Comparable", "Distance"]
+- !private ["PSs10Comparable", "IntegerLiteralType"]
+- !private ["PSs10Comparable", "init"]
+- ["C15CoreDataService15CoreDataService", "AsynchronousDataOperation"]
+- !private ["C15CoreDataService15CoreDataService", "Bool"]
+- ["C15CoreDataService15CoreDataService", "CoreDataService"]
+- !private ["C15CoreDataService15CoreDataService", "CoreDataServiceInitializationFinishedNotification"]
+- ["C15CoreDataService15CoreDataService", "DataAccessObject"]
+- ["C15CoreDataService15CoreDataService", "DataInitializer"]
+- ["C15CoreDataService15CoreDataService", "Dictionary"]
+- !private ["C15CoreDataService15CoreDataService", "NSBundle"]
+- !private ["C15CoreDataService15CoreDataService", "NSError"]
+- !private ["C15CoreDataService15CoreDataService", "NSFileManager"]
+- !private ["C15CoreDataService15CoreDataService", "NSInferMappingModelAutomaticallyOption"]
+- !private ["C15CoreDataService15CoreDataService", "NSManagedObject"]
+- ["C15CoreDataService15CoreDataService", "NSManagedObjectContext"]
+- !private ["C15CoreDataService15CoreDataService", "NSManagedObjectContextConcurrencyType"]
+- ["C15CoreDataService15CoreDataService", "NSManagedObjectModel"]
+- !private ["C15CoreDataService15CoreDataService", "NSMigratePersistentStoresAutomaticallyOption"]
+- !private ["C15CoreDataService15CoreDataService", "NSNotificationCenter"]
+- ["C15CoreDataService15CoreDataService", "NSPersistentStoreCoordinator"]
+- !private ["C15CoreDataService15CoreDataService", "NSSQLiteStoreType"]
+- !private ["C15CoreDataService15CoreDataService", "NSSearchPathForDirectoriesInDomains"]
+- !private ["C15CoreDataService15CoreDataService", "NSURL"]
+- ["C15CoreDataService15CoreDataService", "NSUUID"]
+- !private ["C15CoreDataService15CoreDataService", "SaveCompletionHandler"]
+- !private ["C15CoreDataService15CoreDataService", "String"]
+- ["C15CoreDataService15CoreDataService", "SynchronousReadOnlyDataOperation"]
+- !private ["C15CoreDataService15CoreDataService", "abort"]
+- ["C15CoreDataService15CoreDataService", "beginAsynchronousDataOperationForDataAccessObject"]
+- ["C15CoreDataService15CoreDataService", "beginMainQueueAsynchronousDataOperationForDataAccessObject"]
+- ["C15CoreDataService15CoreDataService", "beginSynchronousReadOnlyDataOperationForDataAccessObject"]
+- !private ["C15CoreDataService15CoreDataService", "cleanupManagedObjectContextForAsynchronousDataOperation"]
+- ["C15CoreDataService15CoreDataService", "dataInitializer"]
+- ["C15CoreDataService15CoreDataService", "deinit"]
+- !private ["C15CoreDataService15CoreDataService", "dispatch_async"]
+- !private ["C15CoreDataService15CoreDataService", "dispatch_get_main_queue"]
+- ["C15CoreDataService15CoreDataService", "dispatch_queue_create"]
+- !private ["C15CoreDataService15CoreDataService", "dispatch_sync"]
+- ["C15CoreDataService15CoreDataService", "init"]
+- ["C15CoreDataService15CoreDataService", "initializationFinished"]
+- ["C15CoreDataService15CoreDataService", "lookupManagedObject"]
+- !private ["C15CoreDataService15CoreDataService", "mainQueueContext"]
+- !private ["C15CoreDataService15CoreDataService", "managedObjectContextForAsynchronousDataOperation"]
+- !private ["C15CoreDataService15CoreDataService", "managedObjectModel"]
+- ["C15CoreDataService15CoreDataService", "modelName"]
+- !private ["C15CoreDataService15CoreDataService", "persistentStoreCoordinator"]
+- !private ["C15CoreDataService15CoreDataService", "println"]
+- !private ["C15CoreDataService15CoreDataService", "rootContext"]
+- !private ["C15CoreDataService15CoreDataService", "saveRootContext"]
+- ["C15CoreDataService15CoreDataService", "sharedCoreDataService"]
+- ["C15CoreDataService15CoreDataService", "storeName"]
+- !private ["C15CoreDataService15CoreDataService", "writingOperationContexts"]
+- !private ["C15CoreDataService15CoreDataService", "writingOperationContextsAccessQueue"]
+- !private ["PSs28CustomDebugStringConvertible", "Generator"]
+- !private ["PSs28CustomDebugStringConvertible", "Index"]
+- ["PSs28CustomDebugStringConvertible", "Key"]
+- !private ["PSs28CustomDebugStringConvertible", "Some"]
+- !private ["PSs28CustomDebugStringConvertible", "SubSequence"]
+- ["PSs28CustomDebugStringConvertible", "Value"]
+- !private ["PSs28CustomDebugStringConvertible", "_Element"]
+- !private ["PSs28CustomDebugStringConvertible", "first"]
+- !private ["PSs28CustomDebugStringConvertible", "init"]
+- !private ["PSs28CustomDebugStringConvertible", "removeValueForKey"]
+- !private ["PSs28CustomDebugStringConvertible", "subscript"]
+- !private ["PSs23CustomStringConvertible", "Distance"]
+- !private ["PSs23CustomStringConvertible", "Generator"]
+- !private ["PSs23CustomStringConvertible", "Index"]
+- !private ["PSs23CustomStringConvertible", "IntegerLiteralType"]
+- ["PSs23CustomStringConvertible", "Key"]
+- !private ["PSs23CustomStringConvertible", "SubSequence"]
+- !private ["PSs23CustomStringConvertible", "URLForResource"]
+- ["PSs23CustomStringConvertible", "Value"]
+- !private ["PSs23CustomStringConvertible", "_Element"]
+- !private ["PSs23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs23CustomStringConvertible", "addPersistentStoreWithType"]
+- !private ["PSs23CustomStringConvertible", "createDirectoryAtPath"]
+- !private ["PSs23CustomStringConvertible", "defaultCenter"]
+- !private ["PSs23CustomStringConvertible", "defaultManager"]
+- !private ["PSs23CustomStringConvertible", "fileExistsAtPath"]
+- !private ["PSs23CustomStringConvertible", "fileURLWithPath"]
+- !private ["PSs23CustomStringConvertible", "first"]
+- !private ["PSs23CustomStringConvertible", "init"]
+- !private ["PSs23CustomStringConvertible", "mainBundle"]
+- !private ["PSs23CustomStringConvertible", "objectWithID"]
+- !private ["PSs23CustomStringConvertible", "parentContext"]
+- !private ["PSs23CustomStringConvertible", "performBlock"]
+- !private ["PSs23CustomStringConvertible", "persistentStoreCoordinator"]
+- !private ["PSs23CustomStringConvertible", "postNotificationName"]
+- !private ["PSs23CustomStringConvertible", "removeItemAtPath"]
+- !private ["PSs23CustomStringConvertible", "removeValueForKey"]
+- !private ["PSs23CustomStringConvertible", "reset"]
+- !private ["PSs23CustomStringConvertible", "rollback"]
+- !private ["PSs23CustomStringConvertible", "save"]
+- !private ["PSs23CustomStringConvertible", "subscript"]
+- !private ["PSs23CustomStringConvertible", "undoManager"]
+- !private ["P15CoreDataService15DataInitializer", "initializeDataForNewStoreInContext"]
+- ["VSs10Dictionary", "Key"]
+- ["VSs10Dictionary", "Value"]
+- !private ["VSs10Dictionary", "removeValueForKey"]
+- !private ["VSs10Dictionary", "subscript"]
+- ["PSs28DictionaryLiteralConvertible", "Key"]
+- ["PSs28DictionaryLiteralConvertible", "Value"]
+- !private ["PSs28DictionaryLiteralConvertible", "removeValueForKey"]
+- !private ["PSs28DictionaryLiteralConvertible", "subscript"]
+- !private ["Sd", "deinit"]
+- !private ["PSs9Equatable", "Distance"]
+- !private ["PSs9Equatable", "DocumentDirectory"]
+- !private ["PSs9Equatable", "IntegerLiteralType"]
+- !private ["PSs9Equatable", "MainQueueConcurrencyType"]
+- !private ["PSs9Equatable", "PrivateQueueConcurrencyType"]
+- !private ["PSs9Equatable", "URLForResource"]
+- !private ["PSs9Equatable", "UserDomainMask"]
+- !private ["PSs9Equatable", "_getBuiltinLogicValue"]
+- !private ["PSs9Equatable", "addPersistentStoreWithType"]
+- !private ["PSs9Equatable", "createDirectoryAtPath"]
+- !private ["PSs9Equatable", "defaultCenter"]
+- !private ["PSs9Equatable", "defaultManager"]
+- !private ["PSs9Equatable", "fileExistsAtPath"]
+- !private ["PSs9Equatable", "fileURLWithPath"]
+- !private ["PSs9Equatable", "init"]
+- !private ["PSs9Equatable", "mainBundle"]
+- !private ["PSs9Equatable", "objectWithID"]
+- !private ["PSs9Equatable", "parentContext"]
+- !private ["PSs9Equatable", "performBlock"]
+- !private ["PSs9Equatable", "persistentStoreCoordinator"]
+- !private ["PSs9Equatable", "postNotificationName"]
+- !private ["PSs9Equatable", "removeItemAtPath"]
+- !private ["PSs9Equatable", "reset"]
+- !private ["PSs9Equatable", "rollback"]
+- !private ["PSs9Equatable", "save"]
+- !private ["PSs9Equatable", "undoManager"]
+- !private ["PSs41ExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["Sf", "deinit"]
+- !private ["PSs16ForwardIndexType", "Distance"]
+- !private ["PSs16ForwardIndexType", "IntegerLiteralType"]
+- !private ["PSs13GeneratorType", "Element"]
+- !private ["PSs8Hashable", "Distance"]
+- !private ["PSs8Hashable", "DocumentDirectory"]
+- !private ["PSs8Hashable", "IntegerLiteralType"]
+- !private ["PSs8Hashable", "MainQueueConcurrencyType"]
+- !private ["PSs8Hashable", "PrivateQueueConcurrencyType"]
+- !private ["PSs8Hashable", "URLForResource"]
+- !private ["PSs8Hashable", "_getBuiltinLogicValue"]
+- !private ["PSs8Hashable", "addPersistentStoreWithType"]
+- !private ["PSs8Hashable", "createDirectoryAtPath"]
+- !private ["PSs8Hashable", "defaultCenter"]
+- !private ["PSs8Hashable", "defaultManager"]
+- !private ["PSs8Hashable", "fileExistsAtPath"]
+- !private ["PSs8Hashable", "fileURLWithPath"]
+- !private ["PSs8Hashable", "init"]
+- !private ["PSs8Hashable", "mainBundle"]
+- !private ["PSs8Hashable", "objectWithID"]
+- !private ["PSs8Hashable", "parentContext"]
+- !private ["PSs8Hashable", "performBlock"]
+- !private ["PSs8Hashable", "persistentStoreCoordinator"]
+- !private ["PSs8Hashable", "postNotificationName"]
+- !private ["PSs8Hashable", "removeItemAtPath"]
+- !private ["PSs8Hashable", "reset"]
+- !private ["PSs8Hashable", "rollback"]
+- !private ["PSs8Hashable", "save"]
+- !private ["PSs8Hashable", "undoManager"]
+- !private ["SQ", "deinit"]
+- !private ["PSs9Indexable", "Generator"]
+- !private ["PSs9Indexable", "Index"]
+- ["PSs9Indexable", "Key"]
+- !private ["PSs9Indexable", "SubSequence"]
+- ["PSs9Indexable", "Value"]
+- !private ["PSs9Indexable", "_Element"]
+- !private ["PSs9Indexable", "first"]
+- !private ["PSs9Indexable", "removeValueForKey"]
+- !private ["PSs9Indexable", "subscript"]
+- !private ["VSs17IndexingGenerator", "Element"]
+- !private ["Si", "Distance"]
+- !private ["Si", "IntegerLiteralType"]
+- !private ["Si", "deinit"]
+- !private ["VSs5Int16", "deinit"]
+- !private ["VSs5Int32", "deinit"]
+- !private ["VSs5Int64", "deinit"]
+- !private ["VSs4Int8", "deinit"]
+- !private ["PSs21IntegerArithmeticType", "Distance"]
+- !private ["PSs21IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["PSs25IntegerLiteralConvertible", "Distance"]
+- !private ["PSs25IntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["PSs11IntegerType", "Distance"]
+- !private ["PSs11IntegerType", "IntegerLiteralType"]
+- !private ["PSs14MirrorPathType", "Distance"]
+- !private ["PSs14MirrorPathType", "IntegerLiteralType"]
+- !private ["PSs14MirrorPathType", "init"]
+- !private ["PSs21MutableCollectionType", "Generator"]
+- !private ["PSs21MutableCollectionType", "Index"]
+- !private ["PSs21MutableCollectionType", "SubSequence"]
+- !private ["PSs21MutableCollectionType", "_Element"]
+- !private ["PSs21MutableCollectionType", "first"]
+- !private ["PSs16MutableIndexable", "Generator"]
+- !private ["PSs16MutableIndexable", "Index"]
+- !private ["PSs16MutableIndexable", "SubSequence"]
+- !private ["PSs16MutableIndexable", "_Element"]
+- !private ["PSs16MutableIndexable", "first"]
+- !private ["PSs16MutableSliceable", "Generator"]
+- !private ["PSs16MutableSliceable", "Index"]
+- !private ["PSs16MutableSliceable", "SubSequence"]
+- !private ["PSs16MutableSliceable", "_Element"]
+- !private ["PSs16MutableSliceable", "first"]
+- !private ["CSo8NSBundle", "URLForResource"]
+- !private ["CSo8NSBundle", "mainBundle"]
+- !private ["PSo8NSCoding", "fileURLWithPath"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "objectWithID"]
+- !private ["PSo8NSCoding", "parentContext"]
+- !private ["PSo8NSCoding", "performBlock"]
+- !private ["PSo8NSCoding", "persistentStoreCoordinator"]
+- !private ["PSo8NSCoding", "reset"]
+- !private ["PSo8NSCoding", "rollback"]
+- !private ["PSo8NSCoding", "save"]
+- !private ["PSo8NSCoding", "undoManager"]
+- !private ["PSo9NSCopying", "fileURLWithPath"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo17NSFastEnumeration", "init"]
+- !private ["CSo13NSFileManager", "createDirectoryAtPath"]
+- !private ["CSo13NSFileManager", "defaultManager"]
+- !private ["CSo13NSFileManager", "fileExistsAtPath"]
+- !private ["CSo13NSFileManager", "removeItemAtPath"]
+- !private ["PSo9NSLocking", "addPersistentStoreWithType"]
+- !private ["PSo9NSLocking", "init"]
+- !private ["PSo9NSLocking", "objectWithID"]
+- !private ["PSo9NSLocking", "parentContext"]
+- !private ["PSo9NSLocking", "performBlock"]
+- !private ["PSo9NSLocking", "persistentStoreCoordinator"]
+- !private ["PSo9NSLocking", "reset"]
+- !private ["PSo9NSLocking", "rollback"]
+- !private ["PSo9NSLocking", "save"]
+- !private ["PSo9NSLocking", "undoManager"]
+- !private ["CSo15NSManagedObject", "deinit"]
+- !private ["CSo15NSManagedObject", "permanentObjectID"]
+- !private ["CSo22NSManagedObjectContext", "deinit"]
+- !private ["CSo22NSManagedObjectContext", "init"]
+- !private ["CSo22NSManagedObjectContext", "objectWithID"]
+- !private ["CSo22NSManagedObjectContext", "parentContext"]
+- !private ["CSo22NSManagedObjectContext", "performBlock"]
+- !private ["CSo22NSManagedObjectContext", "persistentStoreCoordinator"]
+- !private ["CSo22NSManagedObjectContext", "reset"]
+- !private ["CSo22NSManagedObjectContext", "rollback"]
+- !private ["CSo22NSManagedObjectContext", "save"]
+- !private ["CSo22NSManagedObjectContext", "undoManager"]
+- !private ["OSC37NSManagedObjectContextConcurrencyType", "MainQueueConcurrencyType"]
+- !private ["OSC37NSManagedObjectContextConcurrencyType", "PrivateQueueConcurrencyType"]
+- !private ["CSo20NSManagedObjectModel", "init"]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["CSo20NSNotificationCenter", "defaultCenter"]
+- !private ["CSo20NSNotificationCenter", "postNotificationName"]
+- !private ["CSo8NSObject", "URLForResource"]
+- !private ["CSo8NSObject", "addPersistentStoreWithType"]
+- !private ["CSo8NSObject", "createDirectoryAtPath"]
+- !private ["CSo8NSObject", "defaultCenter"]
+- !private ["CSo8NSObject", "defaultManager"]
+- !private ["CSo8NSObject", "deinit"]
+- !private ["CSo8NSObject", "fileExistsAtPath"]
+- !private ["CSo8NSObject", "fileURLWithPath"]
+- !private ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "mainBundle"]
+- !private ["CSo8NSObject", "objectWithID"]
+- !private ["CSo8NSObject", "parentContext"]
+- !private ["CSo8NSObject", "performBlock"]
+- !private ["CSo8NSObject", "permanentObjectID"]
+- !private ["CSo8NSObject", "persistentStoreCoordinator"]
+- !private ["CSo8NSObject", "postNotificationName"]
+- !private ["CSo8NSObject", "removeItemAtPath"]
+- !private ["CSo8NSObject", "reset"]
+- !private ["CSo8NSObject", "rollback"]
+- !private ["CSo8NSObject", "save"]
+- !private ["CSo8NSObject", "undoManager"]
+- !private ["PSo16NSObjectProtocol", "URLForResource"]
+- !private ["PSo16NSObjectProtocol", "addPersistentStoreWithType"]
+- !private ["PSo16NSObjectProtocol", "createDirectoryAtPath"]
+- !private ["PSo16NSObjectProtocol", "defaultCenter"]
+- !private ["PSo16NSObjectProtocol", "defaultManager"]
+- !private ["PSo16NSObjectProtocol", "fileExistsAtPath"]
+- !private ["PSo16NSObjectProtocol", "fileURLWithPath"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "mainBundle"]
+- !private ["PSo16NSObjectProtocol", "objectWithID"]
+- !private ["PSo16NSObjectProtocol", "parentContext"]
+- !private ["PSo16NSObjectProtocol", "performBlock"]
+- !private ["PSo16NSObjectProtocol", "persistentStoreCoordinator"]
+- !private ["PSo16NSObjectProtocol", "postNotificationName"]
+- !private ["PSo16NSObjectProtocol", "removeItemAtPath"]
+- !private ["PSo16NSObjectProtocol", "reset"]
+- !private ["PSo16NSObjectProtocol", "rollback"]
+- !private ["PSo16NSObjectProtocol", "save"]
+- !private ["PSo16NSObjectProtocol", "undoManager"]
+- !private ["CSo28NSPersistentStoreCoordinator", "addPersistentStoreWithType"]
+- !private ["CSo28NSPersistentStoreCoordinator", "init"]
+- !private ["OSC21NSSearchPathDirectory", "DocumentDirectory"]
+- !private ["VSC22NSSearchPathDomainMask", "UserDomainMask"]
+- !private ["PSo14NSSecureCoding", "fileURLWithPath"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["CSo5NSURL", "fileURLWithPath"]
+- !private ["CSo6NSUUID", "init"]
+- !private ["PSs21NilLiteralConvertible", "Some"]
+- !private ["PSs13OptionSetType", "UserDomainMask"]
+- !private ["Sq", "Some"]
+- !private ["Sq", "deinit"]
+- !private ["PSs16OutputStreamType", "init"]
+- !private ["PSs21RandomAccessIndexType", "Distance"]
+- !private ["PSs21RandomAccessIndexType", "IntegerLiteralType"]
+- !private ["PSs30RangeReplaceableCollectionType", "Generator"]
+- !private ["PSs30RangeReplaceableCollectionType", "Index"]
+- !private ["PSs30RangeReplaceableCollectionType", "SubSequence"]
+- !private ["PSs30RangeReplaceableCollectionType", "_Element"]
+- !private ["PSs30RangeReplaceableCollectionType", "first"]
+- !private ["PSs16RawRepresentable", "DocumentDirectory"]
+- !private ["PSs16RawRepresentable", "MainQueueConcurrencyType"]
+- !private ["PSs16RawRepresentable", "PrivateQueueConcurrencyType"]
+- !private ["PSs16RawRepresentable", "UserDomainMask"]
+- !private ["PSs12SequenceType", "Element"]
+- !private ["PSs12SequenceType", "Generator"]
+- !private ["PSs12SequenceType", "Index"]
+- ["PSs12SequenceType", "Key"]
+- !private ["PSs12SequenceType", "SubSequence"]
+- ["PSs12SequenceType", "Value"]
+- !private ["PSs12SequenceType", "_Element"]
+- !private ["PSs12SequenceType", "first"]
+- !private ["PSs12SequenceType", "removeValueForKey"]
+- !private ["PSs12SequenceType", "subscript"]
+- !private ["PSs14SetAlgebraType", "UserDomainMask"]
+- !private ["PSs17SignedIntegerType", "Distance"]
+- !private ["PSs17SignedIntegerType", "IntegerLiteralType"]
+- !private ["PSs16SignedNumberType", "Distance"]
+- !private ["PSs16SignedNumberType", "IntegerLiteralType"]
+- !private ["VSs5Slice", "Generator"]
+- !private ["VSs5Slice", "Index"]
+- !private ["VSs5Slice", "SubSequence"]
+- !private ["VSs5Slice", "_Element"]
+- !private ["PSs10Streamable", "init"]
+- !private ["PSs10Strideable", "Distance"]
+- !private ["PSs10Strideable", "IntegerLiteralType"]
+- !private ["SS", "init"]
+- !private ["PSs30StringInterpolationConvertible", "init"]
+- !private ["PSs24StringLiteralConvertible", "init"]
+- !private ["Su", "deinit"]
+- !private ["VSs6UInt16", "deinit"]
+- !private ["VSs6UInt32", "deinit"]
+- !private ["VSs6UInt64", "deinit"]
+- !private ["VSs5UInt8", "deinit"]
+- !private ["Sc", "deinit"]
+- !private ["PSs31UnicodeScalarLiteralConvertible", "init"]
+- ["VSs13UnsafePointer", "deinit"]
+- !private ["PSs10_ArrayType", "Generator"]
+- !private ["PSs10_ArrayType", "Index"]
+- !private ["PSs10_ArrayType", "SubSequence"]
+- !private ["PSs10_ArrayType", "_Element"]
+- !private ["PSs10_ArrayType", "first"]
+- !private ["PSs33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
+- !private ["PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible", "init"]
+- !private ["PSs33_BuiltinIntegerLiteralConvertible", "Distance"]
+- !private ["PSs33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["PSs32_BuiltinStringLiteralConvertible", "init"]
+- !private ["PSs37_BuiltinUTF16StringLiteralConvertible", "init"]
+- !private ["PSs39_BuiltinUnicodeScalarLiteralConvertible", "init"]
+- !private ["PSs16_CocoaStringType", "init"]
+- !private ["PSs24_DestructorSafeContainer", "Generator"]
+- !private ["PSs24_DestructorSafeContainer", "Index"]
+- !private ["PSs24_DestructorSafeContainer", "SubSequence"]
+- !private ["PSs24_DestructorSafeContainer", "_Element"]
+- !private ["PSs24_DestructorSafeContainer", "first"]
+- !private ["PSs32_FileReferenceLiteralConvertible", "fileURLWithPath"]
+- !private ["PSs14_Incrementable", "Distance"]
+- !private ["PSs14_Incrementable", "IntegerLiteralType"]
+- !private ["PSs22_IntegerArithmeticType", "Distance"]
+- !private ["PSs22_IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["PSs12_IntegerType", "Distance"]
+- !private ["PSs12_IntegerType", "IntegerLiteralType"]
+- !private ["PSs21_ObjectiveCBridgeable", "Distance"]
+- !private ["PSs21_ObjectiveCBridgeable", "Generator"]
+- !private ["PSs21_ObjectiveCBridgeable", "Index"]
+- !private ["PSs21_ObjectiveCBridgeable", "IntegerLiteralType"]
+- ["PSs21_ObjectiveCBridgeable", "Key"]
+- !private ["PSs21_ObjectiveCBridgeable", "SubSequence"]
+- ["PSs21_ObjectiveCBridgeable", "Value"]
+- !private ["PSs21_ObjectiveCBridgeable", "_Element"]
+- !private ["PSs21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["PSs21_ObjectiveCBridgeable", "first"]
+- !private ["PSs21_ObjectiveCBridgeable", "init"]
+- !private ["PSs21_ObjectiveCBridgeable", "removeValueForKey"]
+- !private ["PSs21_ObjectiveCBridgeable", "subscript"]
+- !private ["VSs26_OptionalNilComparisonType", "deinit"]
+- !private ["PSs22_RandomAccessAmbiguity", "Distance"]
+- !private ["PSs22_RandomAccessAmbiguity", "IntegerLiteralType"]
+- !private ["PSs12_Reflectable", "Distance"]
+- !private ["PSs12_Reflectable", "Generator"]
+- !private ["PSs12_Reflectable", "Index"]
+- !private ["PSs12_Reflectable", "IntegerLiteralType"]
+- ["PSs12_Reflectable", "Key"]
+- !private ["PSs12_Reflectable", "Some"]
+- !private ["PSs12_Reflectable", "SubSequence"]
+- ["PSs12_Reflectable", "Value"]
+- !private ["PSs12_Reflectable", "_Element"]
+- !private ["PSs12_Reflectable", "_getBuiltinLogicValue"]
+- !private ["PSs12_Reflectable", "fileURLWithPath"]
+- !private ["PSs12_Reflectable", "first"]
+- !private ["PSs12_Reflectable", "init"]
+- !private ["PSs12_Reflectable", "removeValueForKey"]
+- !private ["PSs12_Reflectable", "subscript"]
+- !private ["PSs18_SignedIntegerType", "Distance"]
+- !private ["PSs18_SignedIntegerType", "IntegerLiteralType"]
+- !private ["PSs11_Strideable", "Distance"]
+- !private ["PSs11_Strideable", "IntegerLiteralType"]
+depends-nominal:
 - "PSs9AnyObject"
+- !private "Sa"
+- !private "PSs23ArrayLiteralConvertible"
+- !private "VSs10ArraySlice"
+- !private "PSs22BidirectionalIndexType"
+- !private "PSs21BitwiseOperationsType"
+- !private "Sb"
+- !private "PSs25BooleanLiteralConvertible"
+- !private "PSs11BooleanType"
+- !private "PSs11CVarArgType"
+- !private "VSs9Character"
+- "PSs14CollectionType"
+- !private "PSs10Comparable"
+- "C15CoreDataService15CoreDataService"
+- "PSs28CustomDebugStringConvertible"
+- "PSs23CustomStringConvertible"
+- !private "P15CoreDataService15DataInitializer"
+- "VSs10Dictionary"
 - "PSs28DictionaryLiteralConvertible"
+- !private "Sd"
+- !private "PSs9Equatable"
+- !private "PSs41ExtendedGraphemeClusterLiteralConvertible"
+- !private "Sf"
+- !private "PSs16ForwardIndexType"
+- !private "PSs13GeneratorType"
+- !private "PSs8Hashable"
+- !private "SQ"
+- "PSs9Indexable"
+- !private "VSs17IndexingGenerator"
+- !private "Si"
+- !private "VSs5Int16"
+- !private "VSs5Int32"
 - !private "VSs5Int64"
-- !private "CSo13NSFileManager"
-- !private "CSo15NSManagedObject"
+- !private "VSs4Int8"
+- !private "PSs21IntegerArithmeticType"
+- !private "PSs25IntegerLiteralConvertible"
+- !private "PSs11IntegerType"
+- !private "PSs14MirrorPathType"
+- !private "PSs21MutableCollectionType"
+- !private "PSs16MutableIndexable"
+- !private "PSs16MutableSliceable"
 - !private "CSo8NSBundle"
-- !private "SS"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo17NSFastEnumeration"
+- !private "CSo13NSFileManager"
+- !private "PSo9NSLocking"
+- !private "CSo15NSManagedObject"
+- !private "CSo22NSManagedObjectContext"
+- !private "OSC37NSManagedObjectContextConcurrencyType"
+- !private "CSo20NSManagedObjectModel"
+- !private "PSo16NSMutableCopying"
+- !private "CSo20NSNotificationCenter"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "CSo28NSPersistentStoreCoordinator"
 - !private "OSC21NSSearchPathDirectory"
 - !private "VSC22NSSearchPathDomainMask"
-- !private "Sb"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "CSo5NSURL"
+- !private "CSo6NSUUID"
+- !private "PSs21NilLiteralConvertible"
+- !private "PSs13OptionSetType"
+- !private "Sq"
+- !private "PSs16OutputStreamType"
+- !private "PSs21RandomAccessIndexType"
+- !private "PSs30RangeReplaceableCollectionType"
+- !private "PSs16RawRepresentable"
 - "PSs12SequenceType"
-- !private "VSs5Int16"
-- !private "Sf"
-- "PSs14CollectionType"
-- "PSs14_Sequence_Type"
+- !private "PSs14SetAlgebraType"
+- !private "PSs17SignedIntegerType"
+- !private "PSs16SignedNumberType"
+- !private "VSs5Slice"
+- !private "PSs10Streamable"
+- !private "PSs10Strideable"
+- !private "SS"
+- !private "PSs30StringInterpolationConvertible"
+- !private "PSs24StringLiteralConvertible"
+- !private "Su"
+- !private "VSs6UInt16"
+- !private "VSs6UInt32"
+- !private "VSs6UInt64"
+- !private "VSs5UInt8"
+- !private "Sc"
+- !private "PSs31UnicodeScalarLiteralConvertible"
+- "VSs13UnsafePointer"
+- !private "PSs10_ArrayType"
+- !private "PSs33_BuiltinBooleanLiteralConvertible"
+- !private "PSs49_BuiltinExtendedGraphemeClusterLiteralConvertible"
+- !private "PSs33_BuiltinIntegerLiteralConvertible"
+- !private "PSs32_BuiltinStringLiteralConvertible"
+- !private "PSs37_BuiltinUTF16StringLiteralConvertible"
+- !private "PSs39_BuiltinUnicodeScalarLiteralConvertible"
+- !private "PSs16_CocoaStringType"
+- !private "PSs24_DestructorSafeContainer"
+- !private "PSs32_FileReferenceLiteralConvertible"
+- !private "PSs14_Incrementable"
+- !private "PSs22_IntegerArithmeticType"
+- !private "PSs12_IntegerType"
 - "PSs21_ObjectiveCBridgeable"
 - !private "VSs26_OptionalNilComparisonType"
-- !private "VSs6UInt64"
-- !private "VSs5Int32"
-- !private "CSo20NSManagedObjectModel"
-- !private "CSo20NSNotificationCenter"
-- !private "VSs4Int8"
-- "PSs15_CollectionType"
-- !private "OSC37NSManagedObjectContextConcurrencyType"
-dynamic-lookup:
-cross-module:
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"
-- "/Users/jgoddard/Repos/finalProjectFixed/CoreDataService/Source/CoreDataService.h"
-- "/Users/jgoddard/Repos/finalProjectFixed/DerivedData/FinalProject/Build/Intermediates/FinalProject.build/Debug-iphonesimulator/CoreDataService.build/unextended-module.modulemap"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/UIKit.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Foundation.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Darwin.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Dispatch.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/ObjectiveC.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/CoreGraphics.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Security.swiftmodule"
-- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/CoreImage.swiftmodule"
+- !private "PSs22_RandomAccessAmbiguity"
+- "PSs12_Reflectable"
+- !private "PSs18_SignedIntegerType"
+- !private "PSs11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/jgoddard/Documents/CIS399/finalProjectFixed/CoreDataService/Source/CoreDataService.h"
+- "/Users/jgoddard/Documents/CIS399/finalProjectFixed/DerivedData/FinalProject/Build/Intermediates/FinalProject.build/Debug-iphonesimulator/CoreDataService.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+interface-hash: "9a09a017432162c5b88a872974bb968e"
