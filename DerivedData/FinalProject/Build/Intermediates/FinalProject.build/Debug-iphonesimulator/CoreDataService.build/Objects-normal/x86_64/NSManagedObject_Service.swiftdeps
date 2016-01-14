@@ -7,13 +7,13 @@ provides-member:
 provides-dynamic-lookup:
 - "permanentObjectID"
 depends-top-level:
+- !private "println"
+- !private "StringLiteralType"
 - "NSManagedObjectID"
 - !private "UnicodeScalarType"
-- !private "NSError"
-- !private "StringLiteralType"
 - "NSManagedObject"
-- !private "println"
 - !private "!"
+- !private "NSError"
 depends-member:
 - !private ["PSs9AnyObject", "init"]
 - !private ["PSs9AnyObject", "managedObjectContext"]
